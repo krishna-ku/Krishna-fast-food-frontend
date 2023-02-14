@@ -1,0 +1,29 @@
+<div class="container">
+    <br>
+    <h3 style="text-align: center;">user-list works!</h3>
+    <br>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Address</th>
+          <th scope="col">Mobile Number</th>
+          <th scope="col">Deleted</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of user">
+          <th scope="row">{{u.id}}</th>
+          <td>{{u.firstName}}</td>
+          <td>{{u.lastName}}</td>
+          <td>{{u.email}}</td>
+          <td>{{u.address}}</td>
+          <td>{{u.mobileNumber}}</td>
+          <td>{{u.deleted}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
