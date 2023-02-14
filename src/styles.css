@@ -10,8 +10,20 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 
 .text-center{
     text-align: center;
+    /* position: relative;
+    top: 100%; */
+    /* transform: translateY(-50%); */
 }
 
 .mt{
   margin-top: 20px;
+}
+
+.colour{
+  color: white;
+}
+
+.container table {
+  color: white;
+  text-align: center;
 }

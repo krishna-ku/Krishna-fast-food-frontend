@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from "@angular/material/input"
 import { FormsModule } from "@angular/forms"
 import { NgxUiLoaderModule,NgxUiLoaderHttpModule } from 'ngx-ui-loader';
+import { RedColorDirective } from './red-color.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { NgxUiLoaderModule,NgxUiLoaderHttpModule } from 'ngx-ui-loader';
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    RedColorDirective
   ],
   imports: [
     BrowserModule,
