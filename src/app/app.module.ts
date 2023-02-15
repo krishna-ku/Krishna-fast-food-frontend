@@ -17,6 +17,7 @@ import { MatInputModule } from "@angular/material/input"
 import { FormsModule } from "@angular/forms"
 import { NgxUiLoaderModule,NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 import { RedColorDirective } from './red-color.directive';
+import { CreateNewUserComponent } from './components/create-new-user/create-new-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { RedColorDirective } from './red-color.directive';
     HomeComponent,
     DashboardComponent,
     NavbarComponent,
-    RedColorDirective
+    RedColorDirective,
+    CreateNewUserComponent
   ],
   imports: [
     BrowserModule,

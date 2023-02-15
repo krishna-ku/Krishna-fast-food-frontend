@@ -1,0 +1,33 @@
+<!-- <div class="bootstrap wrapper">
+    <div class="container">
+        <div class="row">
+
+        </div>
+    </div>
+</div> -->
+<div class="container bottom" style="color: yellowgreen;">
+  <h1>Create New User Account</h1>
+  <form (ngSubmit)="onSubmit()">
+    <div>
+      <label for="firstName">firstName:</label>
+      <input type="text" id="firstName" name="firstName" [(ngModel)]="user.firstName" required>
+    </div>
+    <div>
+      <label for="lastName">LastName:</label>
+      <input type="text" id="lastName" name="lastName" [(ngModel)]="user.lastName" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
+    </div>
+    <!-- <div>
+      <label for="confirm-password">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirm-password" [(ngModel)]="user.confirmPassword" required>
+    </div> -->
+    <button type="submit">Create Account</button>
+  </form>
+</div>

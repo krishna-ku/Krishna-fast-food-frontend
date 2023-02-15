@@ -15,4 +15,9 @@ export class UserService {
   getAllUsers(): Observable<any>{
     return this.httpClient.get<any>(`${this.baseURL}`);
   }
+
+  createNewUser(user:User): Observable<any>{
+    return this.httpClient.post<any>(`${this.baseURL}`,user);
+  }
+
 }

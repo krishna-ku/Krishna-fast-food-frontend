@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateNewUserComponent } from './components/create-new-user/create-new-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
@@ -28,7 +29,12 @@ const routes: Routes = [
   component:UserListComponent,
   pathMatch:'full',
   canActivate:[AuthGuard]
-}
+  },
+  {
+    path:"createnewuser",
+    component:CreateNewUserComponent,
+    pathMatch:'full'
+  },
 ];
 
 @NgModule({
