@@ -1,10 +1,88 @@
-<!-- <div class="bootstrap wrapper">
-    <div class="container">
-        <div class="row">
+<div class="bootstrap-wrapper">
+  <div class="container bottom">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="text-center" style="font-weight: bold; color: wheat">Create Account</h1>
 
-        </div>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          
+          <mat-form-field class="full-width">
+            <mat-label class="custom-label">First Name</mat-label>
+            <input matInput placeholder="Enter here" formControlName="firstName" />
+            <!-- <mat-error *ngIf="userForm.controls['firstName']">
+              Firstname cannot be empty.
+            </mat-error> -->
+          </mat-form-field>
+          
+          <mat-form-field class="full-width">
+            <mat-label class="custom-label">Last Name</mat-label>
+            <input matInput placeholder="Enter here" formControlName="lastName" />
+          </mat-form-field>
+          
+          <mat-form-field class="full-width">
+            <mat-label class="custom-label">Email</mat-label>
+            <input matInput placeholder="Enter here" formControlName="email" />
+            <mat-error class="mat-error" *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)">
+              Email is required and must be a valid email address.
+            </mat-error>
+          </mat-form-field>
+          
+          <mat-form-field class="full-width">
+            <mat-label class="custom-label">Password</mat-label>
+            <input matInput placeholder="Enter here" formControlName="password" />
+            <mat-error *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)">
+              Password is required and must be at least 6 characters long.
+            </mat-error>
+          </mat-form-field>
+
+          <div class="container text-center">
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+            <button type="reset" style="margin-left: 10px;" mat-raised-button color="accent">Reset</button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- <div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row bottom">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="text-center" style="font-weight: bold; color: wheat">Create Account</h1>
+        <form>
+          <mat-form-field class="full-width">
+            <mat-label class="custom-label">First Name</mat-label>
+            <input matInput placeholder="Enter here" />
+          </mat-form-field>
+          
+          <mat-form-field class="full-width">
+            <mat-label class="custom-label">Last Name</mat-label>
+            <input matInput placeholder="Enter here" />
+          </mat-form-field>
+          
+          <mat-form-field class="full-width">
+            <mat-label class="custom-label">Email</mat-label>
+            <input matInput placeholder="Enter here" />
+          </mat-form-field>
+          
+          <mat-form-field class="full-width">
+            <mat-label class="custom-label">Password</mat-label>
+            <input matInput placeholder="Enter here" />
+          </mat-form-field>
+
+          <div class="container text-center">
+            <button mat-raised-button color="primary">Submit</button>
+            <button type="reset" style="margin-left: 10px;" mat-raised-button color="accent">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div> -->
+
+
+<!-- <div class="bootstrap-wrapper">
 <div class="container bottom" style="color: yellowgreen;">
   <h1>Create New User Account</h1>
   <form (ngSubmit)="onSubmit()">
@@ -28,6 +106,8 @@
       <label for="confirm-password">Confirm Password:</label>
       <input type="password" id="confirm-password" name="confirm-password" [(ngModel)]="user.confirmPassword" required>
     </div> -->
-    <button type="submit">Create Account</button>
+    <!-- <button type="submit">Create Account</button>
   </form>
 </div>
+</div> -->
+

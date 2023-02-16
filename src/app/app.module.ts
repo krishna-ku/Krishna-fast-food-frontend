@@ -14,7 +14,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from "@angular/material/input"
-import { FormsModule } from "@angular/forms"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { NgxUiLoaderModule,NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 import { RedColorDirective } from './red-color.directive';
 import { CreateNewUserComponent } from './components/create-new-user/create-new-user.component';
@@ -43,6 +43,7 @@ import { CreateNewUserComponent } from './components/create-new-user/create-new-
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true
     }),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
