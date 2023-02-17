@@ -9,20 +9,23 @@
           <mat-form-field class="full-width">
             <mat-label class="custom-label">First Name</mat-label>
             <input matInput placeholder="Enter here" formControlName="firstName" />
-            <!-- <mat-error *ngIf="userForm.controls['firstName']">
-              Firstname cannot be empty.
-            </mat-error> -->
+            <mat-error class="mat-error" *ngIf="userForm.controls['firstName'] ">
+              Firstname cannot be empty or it only accept alphabets.
+            </mat-error>
           </mat-form-field>
           
           <mat-form-field class="full-width">
             <mat-label class="custom-label">Last Name</mat-label>
             <input matInput placeholder="Enter here" formControlName="lastName" />
+            <mat-error class="mat-error" *ngIf="userForm.controls['lastName'] ">
+              Please enter only alphabets.
+            </mat-error>
           </mat-form-field>
           
           <mat-form-field class="full-width">
             <mat-label class="custom-label">Email</mat-label>
             <input matInput placeholder="Enter here" formControlName="email" />
-            <mat-error class="mat-error" *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)">
+            <mat-error class="mat-error" *ngIf="userForm.controls['email'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)">
               Email is required and must be a valid email address.
             </mat-error>
           </mat-form-field>
@@ -30,8 +33,8 @@
           <mat-form-field class="full-width">
             <mat-label class="custom-label">Password</mat-label>
             <input matInput placeholder="Enter here" formControlName="password" />
-            <mat-error *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)">
-              Password is required and must be at least 6 characters long.
+            <mat-error class="mat-error" *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)">
+              Password must follow this pattern (one Upparcase, one special characters, one number and should be minimum 6 characters)
             </mat-error>
           </mat-form-field>
 

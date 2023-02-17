@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError, mergeMap } from 'rxjs';
 import { User } from './user';
 
 @Injectable({
@@ -16,8 +16,23 @@ export class UserService {
     return this.httpClient.get<any>(`${this.baseURL}`);
   }
 
-  createNewUser(user:User): Observable<any>{
-    return this.httpClient.post<any>(`${this.baseURL}`,user);
+  createNewUser(user: User): Observable<any> {
+    if (!user.email) {
+      return throwError('Email is required');
+    }
+    return this.checkEmailExist(user.email).pipe(
+      mergeMap((emailExists: boolean) => {
+        if (!emailExists) {
+          return this.httpClient.post<any>(`${this.baseURL}`, user);
+        } else {
+          return throwError('Email already exists');
+        }
+      })
+    );
+  }
+
+  checkEmailExist(email: string): Observable<boolean> {
+    return this.httpClient.post<boolean>(`${this.baseURL}/email`, email);
   }
 
 }

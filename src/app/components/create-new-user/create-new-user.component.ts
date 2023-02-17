@@ -19,21 +19,31 @@ export class CreateNewUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      firstName: ['', [Validators.required,Validators.minLength(3),Validators.pattern(`^[a-zA-Z ]+$`)]],
+      lastName: ['', Validators.pattern(`^[a-zA-Z ]+$`)],
+      email: ['', [Validators.required, Validators.email,Validators.pattern(`^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$`)]],
+      password: ['', [Validators.required, Validators.minLength(6),Validators.pattern('^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{6,}$')]]
     });                                       
   }
 
   onSubmit() {
-    if(this.userForm.valid)
-    // const user: User = this.userForm.value;
-    this.userService.createNewUser(this.userForm.value).subscribe(response=>{
-      console.log('User Created Successfully', response);
-      alert('submit'); 
-    }); 
-    alert(console.log());
+    if (this.userForm.valid) {
+      const user: User = this.userForm.value;
+      if (user.email) {
+        this.userService.checkEmailExist(user.email).subscribe(emailExists => {
+          if (!emailExists) {
+            this.userService.createNewUser(user).subscribe(response => {
+              console.log('User Created Successfully', response);
+              alert('submit'); 
+            });
+          } else {
+            alert('Email already exists');
+          }
+        });
+      }
+    } else {
+      alert('Please fill all required fields and correct the invalid ones.');
+    }
   }
 }
 // import { Component,OnInit } from '@angular/core';

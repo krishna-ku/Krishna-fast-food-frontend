@@ -22,8 +22,8 @@
 }
 
 .mat-error {
-  color: white;
-  font-size: 14px;
+  color: orangered;
+  font-size: 18px;
   font-weight: bold;
 }
   
