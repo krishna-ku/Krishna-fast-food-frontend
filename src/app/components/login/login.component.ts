@@ -36,12 +36,14 @@ export class LoginComponent implements OnInit  {
           window.location.href="/dashboard";
         }else{
           console.log('Invalid username and password');
+          alert('Invalid username and password');
           // this.snackBar.open('Error: Wrong credentials','close',{duration:3000})
           
         }
           
         },(error)=>{
           console.log(error);
+          alert("please enter valid username and password")
         }
 
 
@@ -49,6 +51,7 @@ export class LoginComponent implements OnInit  {
       
     }else{
       console.log("Fields are empty !!");
+      alert("Fields are empty !!");
     }
     
   }

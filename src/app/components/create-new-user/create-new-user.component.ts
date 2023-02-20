@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/user';
 import { UserService } from 'src/app/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-new-user',
@@ -14,7 +16,8 @@ export class CreateNewUserComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private snack:MatSnackBar,
   ) {}
 
   ngOnInit(): void {
@@ -34,15 +37,27 @@ export class CreateNewUserComponent implements OnInit {
           if (!emailExists) {
             this.userService.createNewUser(user).subscribe(response => {
               console.log('User Created Successfully', response);
-              alert('submit'); 
+              // alert('submit'); 
+              // this.snack.open('Submit','',{
+              //   duration: 3000,
+              // });
+              Swal.fire('Submit','User is registered successfully');
             });
           } else {
-            alert('Email already exists');
+            // alert('Email already exists');
+            this.snack.open('Email alread exists','',{
+              duration: 3000,
+            });
           }
         });
       }
     } else {
-      alert('Please fill all required fields and correct the invalid ones.');
+      // alert('Please fill all required fields and correct the invalid ones.');
+      this.snack.open('Please fill all required fields and correct the invalid ones.','',{
+        duration:3000,
+        // horizontalPosition:'',
+        // verticalPosition:'top'
+      });
     }
   }
 }

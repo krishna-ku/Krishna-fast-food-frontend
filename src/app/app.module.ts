@@ -18,6 +18,10 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms"
 import { NgxUiLoaderModule,NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 import { RedColorDirective } from './red-color.directive';
 import { CreateNewUserComponent } from './components/create-new-user/create-new-user.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCardModule} from '@angular/material/card';
+import { AuthInterceptorProviders } from './services/auth.interceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,8 +48,10 @@ import { CreateNewUserComponent } from './components/create-new-user/create-new-
       showForeground:true
     }),
     ReactiveFormsModule,
+    MatSnackBarModule,
+    MatCardModule,
   ],
-  providers: [],
+  providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

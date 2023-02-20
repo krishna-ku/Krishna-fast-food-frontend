@@ -46,7 +46,13 @@ export class LoginService {
   //for getting the token from local storage
   getToken()
   {
-    return localStorage.getItem("")
+    return localStorage.getItem('token')
   }
+
+  // public getUserRole(){
+
+
+
+  // }
 
 }

@@ -2,7 +2,9 @@
   <div class="container bottom">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <h1 class="text-center" style="font-weight: bold; color: wheat">Create Account</h1>
+        <mat-card>
+          
+        <h1 class="text-center" style="font-weight: bold; color: indianred">Create Account</h1>
 
         <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
           
@@ -43,6 +45,7 @@
             <button type="reset" style="margin-left: 10px;" mat-raised-button color="accent">Reset</button>
           </div>
         </form>
+      </mat-card>
       </div>
     </div>
   </div>
