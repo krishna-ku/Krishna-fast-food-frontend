@@ -18,9 +18,11 @@ export class NavbarComponent implements OnInit {
 
   logoutUser()
   {
+    // const username=this.loginService.get;
     this.loginService.logout();
-    location.reload();
-    window.location.href="/";
+    // location.reload();
+    // window.location.href="/";
+    
   }
 
 }

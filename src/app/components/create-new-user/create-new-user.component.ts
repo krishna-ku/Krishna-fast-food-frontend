@@ -32,6 +32,8 @@ export class CreateNewUserComponent implements OnInit {
   onSubmit() {
     if (this.userForm.valid) {
       const user: User = this.userForm.value;
+      console.log("you");
+      
       if (user.email) {
         this.userService.checkEmailExist(user.email).subscribe(emailExists => {
           if (!emailExists) {

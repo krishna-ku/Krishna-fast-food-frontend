@@ -12,6 +12,11 @@ export class AuthInterceptor implements HttpInterceptor{
         req: HttpRequest<any>, 
         next: HttpHandler
         ): Observable<HttpEvent<any>> {
+
+            if(req.method=='POST' && req.url.includes('http://localhost:8080/users')){
+                return next.handle(req);
+            }
+
             let authReq=req;
             const token=this.login.getToken();
             console.log('inside Interceptor', JSON.stringify(token));

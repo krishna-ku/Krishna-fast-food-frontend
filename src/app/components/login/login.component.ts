@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit  {
           const token =response.headers.get('Authorization');
           // console.log(response);
           if(token){
-          this.loginService.loginUser(response);
+          this.loginService.loginUser(token.replace('Bearer ',''),this.credentials.username);
           window.location.href="/dashboard";
         }else{
           console.log('Invalid username and password');

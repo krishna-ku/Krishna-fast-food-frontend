@@ -19,9 +19,12 @@ export class LoginService {
   }
 
   //for login user
-  loginUser(token:any)
+  loginUser(token:any,username:any)
   {
+    console.log(token);
+    // debugger
     localStorage.setItem("token",token);
+    localStorage.setItem("username",username);
     return true;
   }
   //check user is logged in or not
@@ -39,7 +42,15 @@ export class LoginService {
   //logout the user
   logout()
   {
+    const username=localStorage.getItem('username');
     localStorage.removeItem('token')
+    console.log('inside logout');
+    
+    this.http.post(`${this.URL}/out`,username).subscribe(
+      ()=>console.log('Logout successful.'),
+      (error)=>console.log('Logout failed: ',error)
+      );
+      console.log(username);
     return true;
   }
 
