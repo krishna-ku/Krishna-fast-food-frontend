@@ -2,7 +2,7 @@
   <div class="container bottom">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <mat-card>
+        <mat-card style="padding: 20px;">
           
         <h1 class="text-center" style="font-weight: bold; color: indianred">Create Account</h1>
 
@@ -34,7 +34,7 @@
           
           <mat-form-field class="full-width">
             <mat-label class="custom-label">Password</mat-label>
-            <input matInput placeholder="Enter here" formControlName="password" />
+            <input matInput placeholder="Enter here" formControlName="password"/>
             <mat-error class="mat-error" *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)">
               Password must follow this pattern (one Upparcase, one special characters, one number and should be minimum 6 characters)
             </mat-error>

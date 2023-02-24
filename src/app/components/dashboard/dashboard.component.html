@@ -1,7 +1,20 @@
-<div class="bootstrap wrapp">
+<!-- <div class="bootstrap wrapper">
     <div style="margin-top: 20px;" class="container text-center ">
-        <h1 style="color: white;">Welcome to dashboard</h1>
+        <h1 style="color: white;">Welcome to dashboard</h1> -->
         <!-- <button mat-raised-button color="primary" (click)="ngOnInit()">Get all users</button> -->
-        <button mat-raised-button color="primary" routerLink="/user">Get all users</button>
+        <!-- <button mat-raised-button color="primary" routerLink="/user">Get all users</button>
+    </div>
+</div> -->
+<div class="bootstrap wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <app-sidebar></app-sidebar>
+            </div>
+            
+            <div class="col-md-10">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
     </div>
 </div>

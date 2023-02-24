@@ -21,6 +21,9 @@ import { CreateNewUserComponent } from './components/create-new-user/create-new-
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import { AuthInterceptorProviders } from './services/auth.interceptor';
+import {MatListModule} from '@angular/material/list';
+import { SidebarComponent } from 'src/common/sidebar/sidebar.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { AuthInterceptorProviders } from './services/auth.interceptor';
     DashboardComponent,
     NavbarComponent,
     RedColorDirective,
-    CreateNewUserComponent
+    CreateNewUserComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +54,8 @@ import { AuthInterceptorProviders } from './services/auth.interceptor';
     ReactiveFormsModule,
     MatSnackBarModule,
     MatCardModule,
+    MatListModule,
+    MatIconModule,
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]

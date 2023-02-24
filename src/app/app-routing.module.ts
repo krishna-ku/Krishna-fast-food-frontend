@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { WelcomComponent } from 'src/admin/welcom/welcom.component';
+import { ProfileComponent } from 'src/common/profile/profile.component';
 import { CreateNewUserComponent } from './components/create-new-user/create-new-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
@@ -20,10 +22,20 @@ const routes: Routes = [
     pathMatch:'full'
   },
   {
-    path:"dashboard",
+    path:"admin",
     component:DashboardComponent,
-    pathMatch:'full',
-    canActivate:[AuthGuard]
+    canActivate:[AuthGuard],
+    children:[
+      {
+        path:'',
+        component:WelcomComponent,
+      },
+      {
+        path:"profile",
+        component:ProfileComponent,
+      }
+    ]
+
   },
   {path:'user',
   component:UserListComponent,

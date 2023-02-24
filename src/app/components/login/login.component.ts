@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import jwt_decode from 'jwt-decode';
+import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
@@ -30,30 +32,30 @@ export class LoginComponent implements OnInit  {
 
         (response)=>{
           const token =response.headers.get('Authorization');
-          // console.log(response);
           if(token){
-          this.loginService.loginUser(token.replace('Bearer ',''),this.credentials.username);
-          window.location.href="/dashboard";
+            const decodedToken=jwt_decode(token)as any;
+            const userRole = decodedToken.authorities.some((authority: any) => {
+              const role= authority.authority.toUpperCase();
+              return role=='ADMIN';
+            });
+          this.loginService.loginUser(token.replace('Bearer ',''));
+          if (userRole)
+            window.location.href="/admin";
+          else
+          console.log('user dashboard');
         }else{
           console.log('Invalid username and password');
           alert('Invalid username and password');
           // this.snackBar.open('Error: Wrong credentials','close',{duration:3000})
-          
         }
-          
         },(error)=>{
           console.log(error);
           alert("please enter valid username and password")
         }
-
-
       )
-      
     }else{
       console.log("Fields are empty !!");
       alert("Fields are empty !!");
     }
-    
   }
-
 }
