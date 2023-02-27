@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { WelcomComponent } from './welcom/welcom.component';
+import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
 
 
 
 @NgModule({
   declarations: [
-    WelcomComponent
+    AdmindashboardComponent
   ],
   imports: [
     CommonModule

@@ -22,8 +22,12 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import { AuthInterceptorProviders } from './services/auth.interceptor';
 import {MatListModule} from '@angular/material/list';
-import { SidebarComponent } from 'src/common/sidebar/sidebar.component';
 import { MatIconModule } from '@angular/material/icon';
+import { UserpageComponent } from './components/userpage/userpage.component';
+import { CommoncomponentsComponent } from './components/commoncomponents/commoncomponents.component';
+// import { AdminpageComponent } from './adminpage/adminpage.component';
+// import { AdminagessComponent } from './src/app/adminmodule/adminagess/adminagess.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +39,11 @@ import { MatIconModule } from '@angular/material/icon';
     NavbarComponent,
     RedColorDirective,
     CreateNewUserComponent,
-    SidebarComponent,
+    // AdminpageComponent,
+    UserpageComponent,
+    CommoncomponentsComponent,
+    // AdminpageComponent,
+    // AdminagessComponent,
   ],
   imports: [
     BrowserModule,
