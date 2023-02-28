@@ -1,0 +1,56 @@
+<mat-card *ngIf="user">
+    <h1 class="text-center" style="margin-top: 20px; font-weight: bold; color: chocolate; background-color: black;">your Profile Details</h1>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+
+                <div class="container text-center">
+                    <img src="https://www.shutterstock.com/image-vector/man-icon-vector-260nw-1040084344.jpg" alt="" class="profile-image">
+                    <h1 style="margin-top: 20px;">{{user.firstName}} {{user.lastName}}</h1>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-10 offset-md-1">
+                        
+                        <table class="table" >
+                            <tr style="color: black;">
+                                <td >Id</td>
+                                <td>{{user.id}}</td>
+                            </tr>
+                            <tr style="color: black;">
+                                <td >Email</td>
+                                <td>{{user.email}}</td>
+                            </tr>
+                            <tr style="color: black;">
+                                <td >Name</td>
+                                <td>{{user.firstName}} {{user.lastName}}</td>
+                            </tr>
+                            <tr style="color: black;" *ngIf='user.mobileNumber'>
+                                <td >Mobile Number</td>
+                                <td>{{user.mobileNumber}}</td>
+                            </tr>
+                            <tr style="color: black;" *ngIf="user?.address">
+                                <td >Address</td>
+                                <td>{{user.address}}</td>
+                            </tr>
+                            <tr style="color: black;">
+                                <td >Status</td>
+                                <td>{{user.deleted?"NOTACTIVE":"ACTIVE"}}</td>
+                            </tr>
+                            <tr style="color: black;">
+                                <td >Role</td>
+                                <td>{{user.role}}</td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="mat-card-actions">
+        <button mat-raised-button color="primary">UPDATE</button>
+    </mat-card-actions>
+</mat-card>

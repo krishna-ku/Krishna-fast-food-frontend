@@ -24,7 +24,10 @@ import { AuthInterceptorProviders } from './services/auth.interceptor';
 import {MatListModule} from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { UserpageComponent } from './components/userpage/userpage.component';
-import { CommoncomponentsComponent } from './components/commoncomponents/commoncomponents.component';
+// import { CommoncomponentsComponent } from './components/commoncomponents/commoncomponents.component';
+import { ProfileComponent } from './components/commoncomponents/profile/profile.component';
+import { SidebarComponent } from './components/commoncomponents/sidebar/sidebar.component';
+import { WelcomepageComponent } from './components/adminpage/welcomepage/welcomepage.component';
 // import { AdminpageComponent } from './adminpage/adminpage.component';
 // import { AdminagessComponent } from './src/app/adminmodule/adminagess/adminagess.component';
 
@@ -41,7 +44,10 @@ import { CommoncomponentsComponent } from './components/commoncomponents/commonc
     CreateNewUserComponent,
     // AdminpageComponent,
     UserpageComponent,
-    CommoncomponentsComponent,
+    // CommoncomponentsComponent,
+    ProfileComponent,
+    SidebarComponent,
+    WelcomepageComponent,
     // AdminpageComponent,
     // AdminagessComponent,
   ],

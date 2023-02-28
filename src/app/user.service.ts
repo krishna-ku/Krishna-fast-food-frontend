@@ -35,6 +35,13 @@ export class UserService {
   return this.httpClient.post<boolean>(`${this.baseURL}/email`, email);
 }
 
+getLoggedInUser():Observable<User>{
+  
+  let token=localStorage.getItem('token');
+
+  return this.httpClient.get<any>(`${this.baseURL}/profile`, { headers: { Authorization: `Bearer ${token}` } });
+
+}
 
 
 }
