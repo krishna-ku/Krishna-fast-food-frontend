@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { WelcomepageComponent } from './components/adminpage/welcomepage/welcomepage.component';
+import { GetallordersComponent } from './components/adminpage/getallorders/getallorders.component';
+import { GetallratingsComponent } from './components/adminpage/getallratings/getallratings.component';
+import { WelcomeComponent } from './components/adminpage/welcome/welcome.component';
 import { ProfileComponent } from './components/commoncomponents/profile/profile.component';
+import { UpdateuserComponent } from './components/commoncomponents/updateuser/updateuser.component';
 import { CreateNewUserComponent } from './components/create-new-user/create-new-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
@@ -28,11 +31,23 @@ const routes: Routes = [
     children:[
       {
         path:'',
-        component:WelcomepageComponent,
+        component:WelcomeComponent,
       },
       {
         path:"profile",
         component:ProfileComponent,
+      },
+      {
+        path:'updateuser',
+        component:UpdateuserComponent
+      },
+      {
+        path:'orders',
+        component:GetallordersComponent
+      },
+      {
+        path:'ratings',
+        component:GetallratingsComponent,
       },
       {
         path:'user',
@@ -41,11 +56,6 @@ const routes: Routes = [
     ]
 
   },
-  // {path:'user',
-  // component:UserListComponent,
-  // pathMatch:'full',
-  // canActivate:[AuthGuard]
-  // },
   {
     path:"createnewuser",
     component:CreateNewUserComponent,

@@ -27,7 +27,11 @@ import { UserpageComponent } from './components/userpage/userpage.component';
 // import { CommoncomponentsComponent } from './components/commoncomponents/commoncomponents.component';
 import { ProfileComponent } from './components/commoncomponents/profile/profile.component';
 import { SidebarComponent } from './components/commoncomponents/sidebar/sidebar.component';
-import { WelcomepageComponent } from './components/adminpage/welcomepage/welcomepage.component';
+import { WelcomeComponent } from './components/adminpage/welcome/welcome.component';
+import { UpdateuserComponent } from './components/commoncomponents/updateuser/updateuser.component';
+import { GetallordersComponent } from './components/adminpage/getallorders/getallorders.component';
+import { GetallratingsComponent } from './components/adminpage/getallratings/getallratings.component';
+// import { WelcomepageComponent } from './components/adminpage/welcomepage/welcomepage.component';
 // import { AdminpageComponent } from './adminpage/adminpage.component';
 // import { AdminagessComponent } from './src/app/adminmodule/adminagess/adminagess.component';
 
@@ -47,7 +51,11 @@ import { WelcomepageComponent } from './components/adminpage/welcomepage/welcome
     // CommoncomponentsComponent,
     ProfileComponent,
     SidebarComponent,
-    WelcomepageComponent,
+    WelcomeComponent,
+    UpdateuserComponent,
+    GetallordersComponent,
+    GetallratingsComponent,
+    // WelcomepageComponent,
     // AdminpageComponent,
     // AdminagessComponent,
   ],

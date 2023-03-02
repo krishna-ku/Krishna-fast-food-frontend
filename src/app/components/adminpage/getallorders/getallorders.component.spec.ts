@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WelcomepageComponent } from './welcomepage.component';
+import { GetallordersComponent } from './getallorders.component';
 
-describe('WelcomepageComponent', () => {
-  let component: WelcomepageComponent;
-  let fixture: ComponentFixture<WelcomepageComponent>;
+describe('GetallordersComponent', () => {
+  let component: GetallordersComponent;
+  let fixture: ComponentFixture<GetallordersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WelcomepageComponent ]
+      declarations: [ GetallordersComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WelcomepageComponent);
+    fixture = TestBed.createComponent(GetallordersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

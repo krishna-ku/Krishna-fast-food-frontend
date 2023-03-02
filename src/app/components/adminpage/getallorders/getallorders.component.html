@@ -1,0 +1,35 @@
+<mat-card style="padding: 30px;">
+    <div class="container">
+        <br>
+        <h3 style="text-align: center; font-weight: bold; color: chocolate; background-color: black;"           >All ORDER LIST</h3>
+        <br>
+        <table class="table" style="color: black;">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <!-- <th scope="col">Id</th> -->
+              <th scope="col">Ordrer Number</th>
+              <th scope="col">Order Status</th>
+              <!-- <th scope="col">Role</th> -->
+              <th scope="col">Total Price</th>
+              <th scope="col">Total Price With GST</th>
+              <th scope="col">Coupon_code</th>
+              <th scope="col">Restaurant_ID</th>
+              <th scope="col">User_ID</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let o of orders">
+              <th scope="row">{{o.orderId}}</th>
+              <td>{{o.orderNumber}}</td>
+              <td>{{o.orderStatus}}</td>
+              <td>{{o.totalPrice}}</td>
+              <td>{{o.totalPriceWithGst}}</td>
+              <td>{{o.applyCoupon}}</td>
+              <td>{{o.restaurantId}}</td>
+              <td>{{o.userId}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card>
