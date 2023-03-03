@@ -11,6 +11,12 @@ export class UserListComponent implements OnInit  {
 
   user?: User[];
 
+  pageSize=10;
+  currentPage=1;
+  // totalPages=null;
+
+  Math = Math;
+
   constructor(private userService:UserService) { }
 
   ngOnInit(): void {
@@ -27,6 +33,7 @@ export class UserListComponent implements OnInit  {
     this.userService.getAllUsers().subscribe(response=>{
       // const data=response.data; 
       this.user=response.data;
+      // this.totalPages=response.totalPages;
     });
   }
 

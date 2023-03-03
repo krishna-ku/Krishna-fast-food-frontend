@@ -24,17 +24,13 @@ import { AuthInterceptorProviders } from './services/auth.interceptor';
 import {MatListModule} from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { UserpageComponent } from './components/userpage/userpage.component';
-// import { CommoncomponentsComponent } from './components/commoncomponents/commoncomponents.component';
 import { ProfileComponent } from './components/commoncomponents/profile/profile.component';
 import { SidebarComponent } from './components/commoncomponents/sidebar/sidebar.component';
 import { WelcomeComponent } from './components/adminpage/welcome/welcome.component';
 import { UpdateuserComponent } from './components/commoncomponents/updateuser/updateuser.component';
 import { GetallordersComponent } from './components/adminpage/getallorders/getallorders.component';
 import { GetallratingsComponent } from './components/adminpage/getallratings/getallratings.component';
-// import { WelcomepageComponent } from './components/adminpage/welcomepage/welcomepage.component';
-// import { AdminpageComponent } from './adminpage/adminpage.component';
-// import { AdminagessComponent } from './src/app/adminmodule/adminagess/adminagess.component';
-
+// import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -46,18 +42,14 @@ import { GetallratingsComponent } from './components/adminpage/getallratings/get
     NavbarComponent,
     RedColorDirective,
     CreateNewUserComponent,
-    // AdminpageComponent,
     UserpageComponent,
-    // CommoncomponentsComponent,
     ProfileComponent,
     SidebarComponent,
     WelcomeComponent,
     UpdateuserComponent,
     GetallordersComponent,
     GetallratingsComponent,
-    // WelcomepageComponent,
-    // AdminpageComponent,
-    // AdminagessComponent,
+    // MatTableModule,
   ],
   imports: [
     BrowserModule,

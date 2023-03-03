@@ -1,7 +1,7 @@
 <mat-card style="padding: 30px;">
-<div class="container">
+  <div class="container">
     <br>
-    <h3 style="text-align: center; font-weight: bold; color: chocolate; background-color: black;"           >USERS LIST</h3>
+    <h3 style="text-align: center; font-weight: bold; color: chocolate; background-color: black;">USERS LIST</h3>
     <br>
     <table class="table" style="color: black;">
       <thead>
@@ -10,24 +10,27 @@
           <th scope="col">First Name</th>
           <th scope="col">Last Name</th>
           <th scope="col">Email</th>
-          <!-- <th scope="col">Role</th> -->
           <th scope="col">Address</th>
           <th scope="col">Mobile Number</th>
           <th scope="col">Deleted</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let u of user">
+        <tr *ngFor="let u of user?.slice((currentPage-1)*pageSize,currentPage*pageSize) || []">
           <th scope="row">{{u.id}}</th>
           <td>{{u.firstName}}</td>
           <td>{{u.lastName}}</td>
           <td>{{u.email}}</td>
-          <!-- <td>{{u.role?u.role:'role not find'}}</td> -->
           <td>{{u.address}}</td>
           <td>{{u.mobileNumber}}</td>
           <td>{{u.deleted}}</td>
         </tr>
       </tbody>
     </table>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <button (click)="currentPage = currentPage - 1" [disabled]="currentPage == 1">Previous</button>
+      <span style="margin: 0 10px;">Page {{currentPage}} of {{user ? Math.ceil(user.length / pageSize) : 0}}</span>
+      <button (click)="currentPage = currentPage + 1" [disabled]="currentPage * pageSize >= (user ? user.length : 0)">Next</button>
+    </div>
   </div>
 </mat-card>
