@@ -12,23 +12,29 @@
                 <div class="row">
 
                     <div class="col-md-10 offset-md-1">
-                        
+
+                        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
                         <table class="table" >
                             <tr style="color: black;">
                                 <td >Email</td>
-                                <td>{{user.email}}</td>
+                                <td><input type="email" formControlName="email"></td>
                             </tr>
                             <tr style="color: black;">
                                 <td >Name</td>
-                                <td>{{user.firstName}} {{user.lastName}}</td>
+                                <td><input type="text" formControlName="firstName"></td>
+                                <!-- <td><input type="text" formControlName="lastName"></td> -->
                             </tr>
-                            <tr style="color: black;" *ngIf='user.mobileNumber'>
+                            <!-- <tr style="color: black;">
+                                <td>Name</td>
+                                <td><input type="text" formControlName="lastName"></td>
+                            </tr> -->
+                            <tr style="color: black;">
                                 <td >Mobile Number</td>
-                                <td>{{user.mobileNumber}}</td>
+                                <td><input type="text" formControlName="mobileNumber"></td>
                             </tr>
-                            <tr style="color: black;" *ngIf="user?.address">
+                            <tr style="color: black;">
                                 <td >Address</td>
-                                <td>{{user.address}}</td>
+                                <td><input type="text" formControlName="address"></td>
                             </tr>
                             <tr style="color: black;">
                                 <td >Status</td>
@@ -39,7 +45,7 @@
                                 <td>{{user.role}}</td>
                             </tr>
                         </table>
-
+                        </form>
                     </div>
 
                 </div>
@@ -47,6 +53,6 @@
         </div>
     </mat-card-content>
     <mat-card-actions class="mat-card-actions">
-        <a mat-raised-button color="primary" routerLink="/admin/updateuser" target="_blank">UPDATE</a>
+        <a mat-raised-button color="primary" (click)="onSubmit()">UPDATE</a>
     </mat-card-actions>
 </mat-card>

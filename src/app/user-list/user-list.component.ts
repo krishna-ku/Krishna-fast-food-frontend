@@ -11,29 +11,42 @@ export class UserListComponent implements OnInit  {
 
   user?: User[];
 
-  pageSize=10;
-  currentPage=1;
-  // totalPages=null;
-
-  Math = Math;
+  pageSize=15;
+  currentPage=0;
+  totalPages=0;
+  totalElements=0;
+  index:number=0;
 
   constructor(private userService:UserService) { }
 
   ngOnInit(): void {
-    // this.user = [{
-    //   id: 1,
-    //   firstName: "keshav",
-    //   lastName: "sharma",
-    //   email: "sharmakeshav"
-    // }];
-    this.getAllUsers();
+
+    this.fillAllUsers();
   }
 
-  getAllUsers(){
+  fillAllUsers(){
     this.userService.getAllUsers().subscribe(response=>{
       // const data=response.data; 
       this.user=response.data;
-      // this.totalPages=response.totalPages;
+      // this.pageSize
+      this.totalPages=response.totalPages;
+      this.totalElements=response.totalElements;
+    });
+  }
+
+  changeData(pageNumber:number){
+    this.currentPage=pageNumber;
+    this.userService.getAllUsers({
+      params:{
+        pageNumber:this.currentPage,
+        
+      }
+    }).subscribe(response=>{
+      // const data=response.data; 
+      this.user=response.data;
+      // this.pageSize
+      this.totalPages=response.totalPages;
+      this.totalElements=response.totalElements;
     });
   }
 

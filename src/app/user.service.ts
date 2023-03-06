@@ -12,8 +12,8 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllUsers(): Observable<any>{
-    return this.httpClient.get<any>(`${this.baseURL}`);
+  getAllUsers(options?:any): Observable<any>{
+    return this.httpClient.get<any>(`${this.baseURL}`,options);
   }
 
   createNewUser(user: User): Observable<any> {
@@ -41,6 +41,10 @@ getLoggedInUser():Observable<User>{
 
   return this.httpClient.get<any>(`${this.baseURL}/profile`, { headers: { Authorization: `Bearer ${token}` } });
 
+}
+
+updateUser(user: User): Observable<any>{
+  return this.httpClient.put<any>(`${this.baseURL}/${user.id}`,user);
 }
 
 
