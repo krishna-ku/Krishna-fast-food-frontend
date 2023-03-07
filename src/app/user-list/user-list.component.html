@@ -6,7 +6,7 @@
     <table class="table" style="color: black;">
       <thead>
         <tr>
-          
+          <th scope="col"><button mat-raised-button color="primary" (click)="selectingUsers = true">Select</button></th>
           <th scope="col">#</th>
           <th scope="col">First Name</th>
           <th scope="col">Last Name</th>
@@ -17,8 +17,9 @@
         </tr>
       </thead>
       <tbody *ngIf="user">
-        <tr *ngFor="let u of user; let i =index">
-          <th scope="row">{{index + i + 1}}</th><!--increment by variable -->
+        <tr *ngFor="let u of user">
+          <td><input type="checkbox" [(ngModel)]="u.selected" [disabled]="!selectingUsers"></td>
+          <th scope="row">{{u.id}}</th><!--increment by variable -->
           <td>{{u.firstName}}</td>
           <td>{{u.lastName}}</td>
           <td>{{u.email}}</td>
@@ -29,9 +30,16 @@
       </tbody>
     </table>
     <div style="display: flex; justify-content: space-between; align-items: center;">
-      <button (click)="changeData(currentPage-1)" [disabled]="currentPage == 0">Previous</button>
-      <span style="margin: 0 10px;">Page {{currentPage+1}} of {{totalPages}}</span>
-      <button (click)="changeData(currentPage + 1)" [disabled]="currentPage >=totalPages">Next</button>
+
+      <button mat-flat-button color="accent" (click)="changeData(currentPage-1)"
+        [disabled]="currentPage == 0">Previous</button>
+
+      <span style="margin: 0 10px;">Page {{currentPage+1}} of {{totalPages}} <button mat-flat-button color="accent"
+          [disabled]="!selectingUsers" (click)="deleteSelectedUsers()">Delete</button></span>
+
+      <button mat-flat-button color="accent" (click)="changeData(currentPage + 1)"
+        [disabled]="currentPage >=totalPages">Next</button>
+
     </div>
   </div>
 </mat-card>

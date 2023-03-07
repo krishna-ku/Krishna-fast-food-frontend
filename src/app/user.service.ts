@@ -47,5 +47,9 @@ updateUser(user: User): Observable<any>{
   return this.httpClient.put<any>(`${this.baseURL}/${user.id}`,user);
 }
 
+deleteUsers(id:number): Observable<any>{
+  return this.httpClient.delete(`${this.baseURL}/${id}`);
+}
+
 
 }

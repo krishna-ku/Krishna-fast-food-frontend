@@ -8,5 +8,5 @@ export class User {
     address?: string="N/A";
     mobileNumber?: string="N/A";
     deleted?: boolean;
-    isSelected?: boolean;
+    selected?: boolean;
 }
