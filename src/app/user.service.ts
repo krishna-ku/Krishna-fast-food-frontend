@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError, mergeMap, of } from 'rxjs';
+import { LoginService } from './services/login.service';
 import { User } from './user';
 
 @Injectable({
@@ -47,8 +48,15 @@ updateUser(user: User): Observable<any>{
   return this.httpClient.put<any>(`${this.baseURL}/${user.id}`,user);
 }
 
-deleteUsers(id:number): Observable<any>{
-  return this.httpClient.delete(`${this.baseURL}/${id}`);
+deleteUsers(userIds:Array<number>): Observable<any>{
+  return this.httpClient.delete(`${this.baseURL}`,{body: userIds});
+}
+
+filterUsers(search:any):Observable<any>{
+
+  const token=localStorage.getItem('token');
+
+  return this.httpClient.post(`${this.baseURL}/filter`,search,{ headers: { Authorization: `Bearer ${token}` }});
 }
 
 

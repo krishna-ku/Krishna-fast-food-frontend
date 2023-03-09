@@ -3,6 +3,10 @@
     <br>
     <h3 style="text-align: center; font-weight: bold; color: chocolate; background-color: black;">USERS LIST</h3>
     <br>
+      <mat-form-field>
+        <input matInput placeholder="Search" [(ngModel)]="searchTerm">
+      </mat-form-field>
+      <button mat-raised-button color="accent" style="margin-left: 10px;" (click)="filterUsers()">Search</button>
     <table class="table" style="color: black;">
       <thead>
         <tr>

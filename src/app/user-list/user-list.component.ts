@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
+import Swal from 'sweetalert2';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
@@ -11,7 +13,9 @@ export class UserListComponent implements OnInit {
 
   user?: User[];
 
-  selectingUsers=false;
+  selectingUsers = false;
+
+  searchTerm='';
 
   pageSize = 15;
   currentPage = 0;
@@ -60,15 +64,35 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  deleteSelectedUsers(){
-    if(this.user && this.user.length>0){
-    for(let u of this.user){
-      if (u.selected == true && u.id != undefined){
-        // let id=u.id;
-        this.userService.deleteUsers(u.id).subscribe();
+  deleteSelectedUsers() {
+    let usersId: Array<number> = [];
+    if (this.user && this.user.length > 0) {
+      for (let u of this.user) {
+        if (u.selected == true && u.id != undefined) {
+          usersId.push(u.id);
+        }
       }
+      this.userService.deleteUsers(usersId).subscribe();
+      Swal.fire('Delete', 'Users is Deleted Successfully');
+      // location.reload();
     }
   }
+
+  filterUsers(){
+
+    const search=this.searchTerm;
+    console.log(search);
+    const s:any[] =search.split(":");
+    // "{"deleted":"true"}"
+    const o:any={};
+    o[s[0]]=s[1];
+    this.userService.filterUsers(o).subscribe(response=>{
+      this.user=response
+
+      console.log(this.user);
+      
+    });
+
   }
 
 
