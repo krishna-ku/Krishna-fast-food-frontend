@@ -1,5 +1,8 @@
-<mat-toolbar color="primary">
-    <span><a *ngIf="!loggedIn" mat-icon-button routerLink="/">Home</a></span>
+<mat-toolbar color="warm">
+    <span><a mat-icon-button routerLink="/">HOME</a></span>
+    <span><a mat-icon-button style="margin-left: 40px;" routerLink="/menu">MENU</a></span>
+    <span><a mat-icon-button style="margin-left: 40px;">ABOUT</a></span>
+    <span><a mat-icon-button style="margin-left: 40px;">CONTACT</a></span>
     <span class="spacer"></span>
     <a *ngIf="!loggedIn"  mat-icon-button routerLink="/login">Login</a>
     <a *ngIf="loggedIn" mat-icon-button routerLink="/admin" >user</a>

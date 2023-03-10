@@ -30,6 +30,7 @@ import { WelcomeComponent } from './components/adminpage/welcome/welcome.compone
 import { UpdateuserComponent } from './components/commoncomponents/updateuser/updateuser.component';
 import { GetallordersComponent } from './components/adminpage/getallorders/getallorders.component';
 import { GetallratingsComponent } from './components/adminpage/getallratings/getallratings.component';
+import { MenuComponent } from './components/commoncomponents/menu/menu/menu.component';
 // import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
@@ -49,6 +50,7 @@ import { GetallratingsComponent } from './components/adminpage/getallratings/get
     UpdateuserComponent,
     GetallordersComponent,
     GetallratingsComponent,
+    MenuComponent,
     // MatTableModule,
   ],
   imports: [

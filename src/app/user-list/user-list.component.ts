@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { map } from 'rxjs';
+import { map, timer } from 'rxjs';
 import Swal from 'sweetalert2';
 import { User } from '../user';
 import { UserService } from '../user.service';
@@ -74,7 +74,7 @@ export class UserListComponent implements OnInit {
       }
       this.userService.deleteUsers(usersId).subscribe();
       Swal.fire('Delete', 'Users is Deleted Successfully');
-      // location.reload();
+      location.reload();
     }
   }
 

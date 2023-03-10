@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import jwt_decode from 'jwt-decode';
-import jwtDecode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
