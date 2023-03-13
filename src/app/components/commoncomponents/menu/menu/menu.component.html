@@ -1,13 +1,16 @@
-<div class="menu-container">
+<div class="menu-container" *ngIf="menu">
   <h1 class="menu-header">Our Menu</h1>
 
   <div class="menu-section">
     <h2 class="section-header">North Indian</h2>
     <ul class="item-list">
-      <li class="menu-item" *ngFor="let m of menu">
+      <li class="menu-item" *ngFor="let m of menu || []">
+        <div class="item-name">{{ m.id }}</div>
         <div class="item-name">{{ m.name }}</div>
         <div class="item-name">{{ m.availability }}</div>
         <div class="item-price">{{ m.price | currency }}</div>
+        <button (click)="addToCart(m)">Add to Cart</button>
+        <!-- <div *ngIf="m && m.quantity > 0">{{ m.quantity }}</div> -->
       </li>
     </ul>
   </div>
@@ -32,3 +35,4 @@
     </ul>
   </div>
 </div>
+<app-cart [cartItems]="cart"></app-cart>

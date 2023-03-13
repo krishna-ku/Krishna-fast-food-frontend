@@ -1,0 +1,23 @@
+<mat-card style="padding: 30px;">
+    <div class="container">
+        <br>
+        <h3 style="text-align: center; font-weight: bold; color: chocolate; background-color: black;">Cart</h3>
+        <br>
+        <table class="table" style="color: black;">
+          <thead>
+            <tr>
+              <!-- <th scope="col">#</th> -->
+              <th scope="col">Item name</th>
+              <th scope="col">Item Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of cartItems">
+              <!-- <th scope="row">{{}}</th> -->
+              <td>{{c.name}}</td>
+              <td>{{c.itemQuantity}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card>

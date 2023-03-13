@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GetallordersComponent } from './components/adminpage/getallorders/getallorders.component';
 import { GetallratingsComponent } from './components/adminpage/getallratings/getallratings.component';
 import { WelcomeComponent } from './components/adminpage/welcome/welcome.component';
+import { CartComponent } from './components/commoncomponents/cart/cart.component';
 import { MenuComponent } from './components/commoncomponents/menu/menu/menu.component';
 import { ProfileComponent } from './components/commoncomponents/profile/profile.component';
 import { UpdateuserComponent } from './components/commoncomponents/updateuser/updateuser.component';
@@ -60,6 +61,10 @@ const routes: Routes = [
   {
     path:"menu",
     component:MenuComponent,
+  },
+  {
+    path:"cart",
+    component:CartComponent
   },
   {
     path:"createnewuser",
