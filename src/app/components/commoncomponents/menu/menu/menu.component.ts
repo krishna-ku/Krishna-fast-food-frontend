@@ -15,10 +15,14 @@
     constructor(private menuService:Menuservice,
       private loginservice:LoginService) {}
 
-    ngOnInit(): void{
-      this.getMenus();
-    }
-
+      ngOnInit(): void {
+        this.getMenus();
+      
+        const item = localStorage.getItem('cart');
+        if (item && item.trim() !== '') {
+          this.cart = JSON.parse(item);
+        }
+      }
 
     getMenus(){
 
@@ -28,19 +32,18 @@
 
     }
 
-    @Input() cart: { name: string, itemQuantity: number }[] = [];
+    cart: { name: string, itemQuantity: number }[] = [];//local storage
 
     addToCart(item:any){
+      if(!this.loginservice.isLoggedIn()){
 
-      // if(this.loginservice.isLoggedIn()){
+        window.location.href="/login"
 
-      //   window.location.href="/login"
-
-      //   setTimeout(() => {
-      //   alert("please login first");
-      //   },0);
-      // }
-      // else{
+        setTimeout(() => {
+        alert("please login first");
+        },0);
+      }
+      else{
         const itemExist=this.cart.find(cartItem=> cartItem.name==item.name);
 
         if(itemExist){
@@ -49,24 +52,8 @@
         this.cart.push({ name: item.name,itemQuantity:1 });
         console.log(this.cart);
         
-      // }
+      }
+      localStorage.setItem('cart',JSON.stringify(this.cart));
     }
   }
-
-
-
-    appetizers = [
-      { name: 'Garlic Bread', price: 5.99 },
-      { name: 'Bruschetta', price: 7.99 },
-    ];
-    
-    entrees = [
-      { name: 'Spaghetti and Meatballs', price: 12.99 },
-      { name: 'Chicken Alfredo', price: 15.99 },
-    ];
-    
-    desserts = [
-      { name: 'Tiramisu', price: 6.99 },
-      { name: 'Chocolate Cake', price: 5.99 },
-    ];
   }

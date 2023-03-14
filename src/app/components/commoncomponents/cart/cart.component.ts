@@ -1,4 +1,7 @@
 import { Component,Input,OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
+import { Orderservice } from '../../service/orderservice.service';
+
 
 @Component({
   selector: 'app-cart',
@@ -7,11 +10,25 @@ import { Component,Input,OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  @Input() cartItems: Array<{name: string, itemQuantity: number}> = [];
+  cartItems:any[]=[];
+
+  constructor(private orderservice:Orderservice){}
 
   ngOnInit(): void {
-    console.log(this.cartItems);
+    // const cartItemsString:any = localStorage.getItem('cart');
+    // this.cartItems=JSON.parse(this.items);
+    this.cartItems=JSON.parse(localStorage.getItem('cart')??'') || [];
     
+  }
+
+  placedOrder(){
+
+    this.orderservice.placedOrder(this.cartItems).subscribe();
+    Swal.fire('Thank you','Order Placed Successfully');
+    localStorage.removeItem('cart');
+    setTimeout(() => {
+      window.location.href="/menu";
+    }, 2000);
   }
 
 }

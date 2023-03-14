@@ -31,7 +31,7 @@ export class LoginService {
   isLoggedIn()
   {
     let token=localStorage.getItem("token");
-    if(token==undefined || token=='' || token==null)
+    if(token===undefined || token==='' || token===null)
     {
       return false;
     }else{
@@ -45,7 +45,8 @@ export class LoginService {
     // const username=localStorage.getItem('username');
     console.log('inside logout');
     this.http.post(`${this.URL}/signout`,null).subscribe((response)=>{
-      localStorage.removeItem('token')
+      // localStorage.removeItem('token')
+      localStorage.clear();
     });
     
     return true;

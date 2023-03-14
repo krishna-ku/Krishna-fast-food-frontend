@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import jwt_decode from 'jwt-decode';
+import { User } from 'src/app/user';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-login',
@@ -10,15 +12,22 @@ import jwt_decode from 'jwt-decode';
 })
 export class LoginComponent implements OnInit  {
 
+  user:User|undefined;
+
+
   credentials={
     username:'',
     password:''
   }
 
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService
+    ,private userservice:UserService
+    ) { }
 
   ngOnInit(): void{
-
+    // this.getLoggedInUser();
+    // localStorage.setItem('user',JSON.stringify(this.user?.firstName))
+    
   }
 
   onSubmit()
@@ -38,8 +47,10 @@ export class LoginComponent implements OnInit  {
               return role=='ADMIN';
             });
           this.loginService.loginUser(token.replace('Bearer ',''));
-          if (userRole)
+          if (userRole){
+            this.getLoggedInUser();
             window.location.href="/admin";
+          }
           else
           console.log('user dashboard');
         }else{
@@ -57,4 +68,12 @@ export class LoginComponent implements OnInit  {
       alert("Fields are empty !!");
     }
   }
+
+  getLoggedInUser(){
+    this.userservice.getLoggedInUser().subscribe(response=>{
+      this.user=response
+      localStorage.setItem('user',JSON.stringify(this.user));
+    });
+  }
+
 }

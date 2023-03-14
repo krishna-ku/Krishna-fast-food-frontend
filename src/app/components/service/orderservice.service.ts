@@ -16,5 +16,12 @@ export class Orderservice {
     return this.http.get<any>(`${this.baseURL}`);
   }
 
+  placedOrder(cart:any[]):Observable<any>{
+    let user=JSON.parse(localStorage.getItem('user')??'');
+    let userId=user.id;
+    const order = { orderItems: cart };
+    return this.http.post(`${this.baseURL}/${userId}`, order);
+  }
+
 
 }

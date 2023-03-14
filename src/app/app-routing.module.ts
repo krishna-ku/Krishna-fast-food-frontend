@@ -61,6 +61,11 @@ const routes: Routes = [
   {
     path:"menu",
     component:MenuComponent,
+    // children:[{
+    //   path:"cart",
+    //   component:CartComponent,
+    //   // canActivate:[AuthGuard],
+    // }]
   },
   {
     path:"cart",
