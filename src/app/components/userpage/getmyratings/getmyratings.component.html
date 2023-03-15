@@ -1,0 +1,25 @@
+<mat-card style="padding: 30px;">
+    <div class="container">
+        <br>
+        <h3 style="text-align: center; font-weight: bold; color: chocolate; background-color: black;">All RATING LIST</h3>
+        <br>
+        <table class="table" style="color: black;">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Rating</th>
+              <th scope="col">Review</th>
+              <th scope="col">Deleted</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let r of ratings">
+              <th scope="row">{{r.id}}</th>
+              <td>{{r.rating}}</td>
+              <td>{{r.review}}</td>
+              <td>{{r.deleted}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card>

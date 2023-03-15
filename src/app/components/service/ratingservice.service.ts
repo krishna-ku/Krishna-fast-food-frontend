@@ -15,4 +15,8 @@ export class Ratingservice {
     
     return this.http.get<any>(`${this.baseURL}`);
   }
+
+  getFilterRatings():Observable<any>{
+    return this.http.post(`${this.baseURL}/filter`,{body:{}});
+  }
 }

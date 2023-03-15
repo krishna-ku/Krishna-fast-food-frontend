@@ -23,5 +23,9 @@ export class Orderservice {
     return this.http.post(`${this.baseURL}/${userId}`, order);
   }
 
+  getFilterOrders(): Observable<any> {
+    const emptyBody = {}; // create an empty object
+    return this.http.post(`${this.baseURL}/filter`, {body:emptyBody});
+  }
 
 }

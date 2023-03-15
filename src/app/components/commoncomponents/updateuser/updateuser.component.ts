@@ -29,7 +29,7 @@ export class UpdateuserComponent implements OnInit {
   }
 
   onSubmit(){
-
+    location.reload();
   }
 
 }

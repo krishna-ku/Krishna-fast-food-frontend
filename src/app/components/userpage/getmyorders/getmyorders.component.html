@@ -7,14 +7,12 @@
           <thead>
             <tr>
               <th scope="col">#</th>
-              <!-- <th scope="col">Id</th> -->
               <th scope="col">Order Status</th>
-              <!-- <th scope="col">Role</th> -->
               <th scope="col">Total Price</th>
               <th scope="col">Total Price With GST</th>
               <th scope="col">Coupon_code</th>
-              <!-- <th scope="col">Restaurant_ID</th>
-              <th scope="col">User_ID</th> -->
+              <th scope="col">Restaurant Name</th>
+              <th scope="col">order Date</th>
             </tr>
           </thead>
           <tbody>
@@ -24,8 +22,8 @@
               <td>{{o.totalPrice}}</td>
               <td>{{o.totalPriceWithGst}}</td>
               <td>{{o.applyCoupon}}</td>
-              <!-- <td>{{o.restaurantId}}</td>
-              <td>{{o.userId}}</td> -->
+              <td>{{o.restaurantName}}</td>
+              <td>{{o.orderDate}}</td>
             </tr>
           </tbody>
         </table>

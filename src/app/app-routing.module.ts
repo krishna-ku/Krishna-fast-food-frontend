@@ -11,6 +11,10 @@ import { CreateNewUserComponent } from './components/create-new-user/create-new-
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { GetmyordersComponent } from './components/userpage/getmyorders/getmyorders.component';
+import { GetmyratingsComponent } from './components/userpage/getmyratings/getmyratings.component';
+import { UserpageComponent } from './components/userpage/userpage.component';
+import { UserwelcomepageComponent } from './components/userpage/userwelcomepage/userwelcomepage.component';
 import { AuthGuard } from './services/auth.guard';
 import { UserListComponent } from './user-list/user-list.component';
 
@@ -59,18 +63,51 @@ const routes: Routes = [
 
   },
   {
-    path:"menu",
-    component:MenuComponent,
-    // children:[{
-    //   path:"cart",
-    //   component:CartComponent,
-    //   // canActivate:[AuthGuard],
-    // }]
+    path:'user',
+    component:UserpageComponent,
+    canActivate:[AuthGuard],
+    children:[
+    {
+      path:'',
+      component:UserwelcomepageComponent
+    },
+    {
+      path:"profile",
+      component:ProfileComponent,
+    },
+    {
+      path:'updateuser',
+      component:UpdateuserComponent
+    },
+    {
+      path:'orders',
+      component:GetmyordersComponent
+    },
+    {
+      path:'ratings',
+      component:GetmyratingsComponent,
+    },
+  ]
   },
   {
-    path:"cart",
-    component:CartComponent
+    path:"menu",
+    // component:MenuComponent,
+    children:[
+      {
+        path:'',
+        component:MenuComponent
+      },
+      {
+      path:"cart",
+      component:CartComponent,
+      // canActivate:[AuthGuard],
+    }
+  ]
   },
+  // {
+  //   path:"cart",
+  //   component:CartComponent
+  // },
   {
     path:"createnewuser",
     component:CreateNewUserComponent,

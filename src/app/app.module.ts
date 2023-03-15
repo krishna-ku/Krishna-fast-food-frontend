@@ -32,6 +32,10 @@ import { GetallordersComponent } from './components/adminpage/getallorders/getal
 import { GetallratingsComponent } from './components/adminpage/getallratings/getallratings.component';
 import { MenuComponent } from './components/commoncomponents/menu/menu/menu.component';
 import { CartComponent } from './components/commoncomponents/cart/cart.component';
+import { UsersidebarComponent } from './components/userpage/usersidebar/usersidebar.component';
+import { UserwelcomepageComponent } from './components/userpage/userwelcomepage/userwelcomepage.component';
+import { GetmyordersComponent } from './components/userpage/getmyorders/getmyorders.component';
+import { GetmyratingsComponent } from './components/userpage/getmyratings/getmyratings.component';
 // import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
@@ -53,6 +57,10 @@ import { CartComponent } from './components/commoncomponents/cart/cart.component
     GetallratingsComponent,
     MenuComponent,
     CartComponent,
+    UsersidebarComponent,
+    UserwelcomepageComponent,
+    GetmyordersComponent,
+    GetmyratingsComponent,
     // MatTableModule,
   ],
   imports: [

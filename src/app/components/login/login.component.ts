@@ -51,8 +51,9 @@ export class LoginComponent implements OnInit  {
             this.getLoggedInUser();
             window.location.href="/admin";
           }
-          else
-          console.log('user dashboard');
+          else{
+            this.getLoggedInUser();
+          window.location.href='/user';}
         }else{
           console.log('Invalid username and password');
           alert('Invalid username and password');
