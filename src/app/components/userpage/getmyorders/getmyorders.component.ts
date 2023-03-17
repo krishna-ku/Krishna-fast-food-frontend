@@ -10,6 +10,7 @@ import { Orderservice } from '../../service/orderservice.service';
 export class GetmyordersComponent implements OnInit  {
 
   orders?:Orders[];
+  // i?:number;
 
 
   constructor(private orderservice:Orderservice) {}
@@ -21,8 +22,12 @@ export class GetmyordersComponent implements OnInit  {
   getMyOrders(){
 
     this.orderservice.getFilterOrders().subscribe(response=>{
-      this.orders=response;
+      this.orders = response.sort((a:any, b:any) => b.orderId - a.orderId);
     })
+  }
+
+  giveRating(){
+    
   }
 
 }

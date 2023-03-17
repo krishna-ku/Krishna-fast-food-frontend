@@ -1,31 +1,37 @@
 <mat-card style="padding: 30px;">
-    <div class="container">
-        <br>
-        <h3 style="text-align: center; font-weight: bold; color: chocolate; background-color: black;">All ORDER LIST</h3>
-        <br>
-        <table class="table" style="color: black;">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Order Status</th>
-              <th scope="col">Total Price</th>
-              <th scope="col">Total Price With GST</th>
-              <th scope="col">Coupon_code</th>
-              <th scope="col">Restaurant Name</th>
-              <th scope="col">order Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let o of orders">
-              <th scope="row">{{o.orderId}}</th>
-              <td>{{o.orderStatus}}</td>
-              <td>{{o.totalPrice}}</td>
-              <td>{{o.totalPriceWithGst}}</td>
-              <td>{{o.applyCoupon}}</td>
-              <td>{{o.restaurantName}}</td>
-              <td>{{o.orderDate}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </mat-card>
+  <div class="container">
+    <br>
+    <h3 style="text-align: center; font-weight: bold; color: chocolate; background-color: black;">All ORDER LIST</h3>
+    <br>
+    <table class="table" style="color: black;">
+      <thead>
+        <tr>
+          <!-- <th scope="col">#</th> -->
+          <th scope="col">Order Status</th>
+          <th scope="col">Total Price</th>
+          <th scope="col">Total Price With GST</th>
+          <th scope="col">Coupon_code</th>
+          <th scope="col">Restaurant Name</th>
+          <th scope="col">order Date</th>
+          <th scope="col">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let o of orders; let i = index;">
+          <tr [class.last-order]="orders && i ===  0">
+            <!-- <th scope="row">{{i}}</th> -->
+            <td>{{o.orderStatus}}</td>
+            <td>{{o.totalPrice}}</td>
+            <td>{{o.totalPriceWithGst}}</td>
+            <td>{{o.applyCoupon}}</td>
+            <td>{{o.restaurantName}}</td>
+            <td>{{o.orderDate}}</td>
+            <td>
+              <button *ngIf="orders && i === 0" style="color: red;">Rate</button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</mat-card>
