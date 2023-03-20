@@ -18,7 +18,7 @@
       </thead>
       <tbody>
         <ng-container *ngFor="let o of orders; let i = index;">
-          <tr [class.last-order]="orders && i ===  0">
+          <tr [class.last-order]="i ===  0">
             <!-- <th scope="row">{{i}}</th> -->
             <td>{{o.orderStatus}}</td>
             <td>{{o.totalPrice}}</td>
@@ -27,7 +27,7 @@
             <td>{{o.restaurantName}}</td>
             <td>{{o.orderDate}}</td>
             <td>
-              <button *ngIf="orders && i === 0" style="color: red;">Rate</button>
+              <button (click)="giveRating()" *ngIf="o.orderStatus==='COMPLETED' && i === 0" style="color: red;">Rate</button>
             </td>
           </tr>
         </ng-container>

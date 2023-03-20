@@ -36,6 +36,8 @@ import { UsersidebarComponent } from './components/userpage/usersidebar/userside
 import { UserwelcomepageComponent } from './components/userpage/userwelcomepage/userwelcomepage.component';
 import { GetmyordersComponent } from './components/userpage/getmyorders/getmyorders.component';
 import { GetmyratingsComponent } from './components/userpage/getmyratings/getmyratings.component';
+import { GiveratingComponent } from './components/userpage/getmyratings/postrating/giverating/giverating.component';
+import { MatDialogModule } from '@angular/material/dialog';
 // import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
@@ -61,6 +63,7 @@ import { GetmyratingsComponent } from './components/userpage/getmyratings/getmyr
     UserwelcomepageComponent,
     GetmyordersComponent,
     GetmyratingsComponent,
+    GiveratingComponent,
     // MatTableModule,
   ],
   imports: [
@@ -82,6 +85,7 @@ import { GetmyratingsComponent } from './components/userpage/getmyratings/getmyr
     MatCardModule,
     MatListModule,
     MatIconModule,
+    MatDialogModule,
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]

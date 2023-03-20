@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { GetmyordersComponent } from './components/userpage/getmyorders/getmyorders.component';
 import { GetmyratingsComponent } from './components/userpage/getmyratings/getmyratings.component';
+import { GiveratingComponent } from './components/userpage/getmyratings/postrating/giverating/giverating.component';
 import { UserpageComponent } from './components/userpage/userpage.component';
 import { UserwelcomepageComponent } from './components/userpage/userwelcomepage/userwelcomepage.component';
 import { AuthGuard } from './services/auth.guard';
@@ -87,6 +88,10 @@ const routes: Routes = [
       path:'ratings',
       component:GetmyratingsComponent,
     },
+    {
+      path:'postrating',
+      component:GiveratingComponent,
+    },
   ]
   },
   {
@@ -101,7 +106,7 @@ const routes: Routes = [
       path:"cart",
       component:CartComponent,
       // canActivate:[AuthGuard],
-    }
+    },
   ]
   },
   // {

@@ -19,4 +19,12 @@ export class Ratingservice {
   getFilterRatings():Observable<any>{
     return this.http.post(`${this.baseURL}/filter`,{body:{}});
   }
+
+  giveRating(orderId:number,rating:any):Observable<any>{
+    let user=JSON.parse(localStorage.getItem('user')??'')
+    let userId =user.id
+    return this.http.post(`${this.baseURL}/${orderId}/user/${userId}`,rating)
+  }
+
+
 }

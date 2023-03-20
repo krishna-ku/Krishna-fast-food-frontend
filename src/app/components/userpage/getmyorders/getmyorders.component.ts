@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Orders } from '../../classes/orders';
 import { Orderservice } from '../../service/orderservice.service';
+import { MatDialog } from '@angular/material/dialog';
+import { GiveratingComponent } from '../getmyratings/postrating/giverating/giverating.component';
 
 @Component({
   selector: 'app-getmyorders',
@@ -13,7 +15,9 @@ export class GetmyordersComponent implements OnInit  {
   // i?:number;
 
 
-  constructor(private orderservice:Orderservice) {}
+  constructor(private orderservice:Orderservice,
+    private dialog:MatDialog
+    ) {}
 
   ngOnInit(): void {
     this.getMyOrders();
@@ -27,7 +31,7 @@ export class GetmyordersComponent implements OnInit  {
   }
 
   giveRating(){
-    
+    this.dialog.open(GiveratingComponent)
   }
 
 }
