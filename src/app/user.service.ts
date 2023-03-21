@@ -59,5 +59,9 @@ filterUsers(search:any):Observable<any>{
   return this.httpClient.post(`${this.baseURL}/filter`,search,{ headers: { Authorization: `Bearer ${token}` }});
 }
 
+activateUsers(usersId:Array<number>):Observable<any>{
+  return this.httpClient.put(`${this.baseURL}/activate`,usersId);
+}
+
 
 }

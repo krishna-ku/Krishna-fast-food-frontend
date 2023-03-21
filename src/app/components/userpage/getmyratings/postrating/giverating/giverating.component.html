@@ -1,52 +1,40 @@
-<!-- <div class="bootstrap-wrapper">
-    <div class="container bottom">
-      <div class="row">
-        <div class="col-md-6 offset-md-3">
-          <mat-card style="padding: 20px;">
-            
-          <h1 class="text-center" style="font-weight: bold; color: indianred">Rating</h1>
-  
-          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-            
+<div class="bootstrap-wrapper">
+  <div class="container bottom">
+    <div class="row">
+      <div>
+        <mat-card style="padding: 20px;">
+
+          <h1 class="text-center" style="font-weight: bold;color: indianred;">Rating</h1>
+
+          <form [formGroup]="ratingForm"(ngSubmit)="onSubmit()">
+           
             <mat-form-field class="full-width">
-              <mat-label class="custom-label">First Name</mat-label>
-              <input matInput placeholder="Enter here" formControlName="firstName" />
-              <mat-error class="mat-error" *ngIf="userForm.controls['firstName'] ">
-                Firstname cannot be empty or it only accept alphabets.
+              <mat-label class="custom-label">Rating</mat-label>
+              <input matInput placeholder="Enter here" formControlName="rating"/>
+              <mat-error class="mat-error" *ngIf="ratingForm.controls['rating']">
+                Please give rating between 1 to 5
               </mat-error>
             </mat-form-field>
-            
+
             <mat-form-field class="full-width">
-              <mat-label class="custom-label">Last Name</mat-label>
-              <input matInput placeholder="Enter here" formControlName="lastName" />
-              <mat-error class="mat-error" *ngIf="userForm.controls['lastName'] ">
-                Please enter only alphabets.
+              <mat-label class="custom-label">Review</mat-label>
+              <input matInput placeholder="Enter here" formControlName="review"/>
+              <mat-error class="mat-error" *ngIf="ratingForm.controls['review']">
+                Please give review max 100 words
               </mat-error>
             </mat-form-field>
-            
-            <mat-form-field class="full-width">
-              <mat-label class="custom-label">Email</mat-label>
-              <input matInput placeholder="Enter here" formControlName="email" />
-              <mat-error class="mat-error" *ngIf="userForm.controls['email'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)">
-                Email is required and must be a valid email address.
-              </mat-error>
-            </mat-form-field>
-            
-            <mat-form-field class="full-width">
-              <mat-label class="custom-label">Password</mat-label>
-              <input matInput placeholder="Enter here" formControlName="password"/>
-              <mat-error class="mat-error" *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)">
-                Password must follow this pattern (one Upparcase, one special characters, one number and should be minimum 6 characters)
-              </mat-error>
-            </mat-form-field>
-  
+
             <div class="container text-center">
-              <button mat-raised-button color="primary" type="submit">Submit</button>
+              <button mat-raised-button color="primary" type="submit">submit</button>
               <button type="reset" style="margin-left: 10px;" mat-raised-button color="accent">Reset</button>
+
             </div>
           </form>
+
         </mat-card>
-        </div>
+
       </div>
+
     </div>
-  </div> -->
+  </div>
+</div>

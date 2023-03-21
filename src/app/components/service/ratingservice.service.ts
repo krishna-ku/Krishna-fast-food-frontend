@@ -20,7 +20,11 @@ export class Ratingservice {
     return this.http.post(`${this.baseURL}/filter`,{body:{}});
   }
 
-  giveRating(orderId:number,rating:any):Observable<any>{
+  giveRating(rating:any):Observable<any>{
+    let lastOrder=JSON.parse(localStorage.getItem('lastOrder')??'');
+      const orderId=lastOrder.orderId
+      console.log(orderId);
+      
     let user=JSON.parse(localStorage.getItem('user')??'')
     let userId =user.id
     return this.http.post(`${this.baseURL}/${orderId}/user/${userId}`,rating)

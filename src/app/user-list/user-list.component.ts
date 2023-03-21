@@ -74,7 +74,9 @@ export class UserListComponent implements OnInit {
       }
       this.userService.deleteUsers(usersId).subscribe();
       Swal.fire('Delete', 'Users is Deleted Successfully');
-      location.reload();
+      setTimeout(() => {
+        location.reload()
+      }, 3000);
     }
   }
 
@@ -92,6 +94,23 @@ export class UserListComponent implements OnInit {
       console.log(this.user);
       
     });
+
+  }
+
+  activateMultipleUsers(){
+    let userIds:Array<number>=[];
+    if(this.user && this.user.length>0){
+      for(let u of this.user){
+        if(u.selected==true && u.id!=undefined)
+        userIds.push(u.id);
+      }
+    }
+    console.log(userIds)
+    this.userService.activateUsers(userIds).subscribe();
+    Swal.fire('Activate', 'Users is Activate Successfully');
+      setTimeout(() => {
+        location.reload()
+      }, 3000);
 
   }
 

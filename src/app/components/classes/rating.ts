@@ -1,6 +1,6 @@
 export class Rating {
     id?:number;
-    rating?:string;
+    rating?:number;
     review?:string;
     deleted?: boolean;
 }

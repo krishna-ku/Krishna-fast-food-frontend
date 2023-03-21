@@ -12,7 +12,7 @@ import { GiveratingComponent } from '../getmyratings/postrating/giverating/giver
 export class GetmyordersComponent implements OnInit  {
 
   orders?:Orders[];
-  // i?:number;
+  isRated=false
 
 
   constructor(private orderservice:Orderservice,
@@ -27,11 +27,16 @@ export class GetmyordersComponent implements OnInit  {
 
     this.orderservice.getFilterOrders().subscribe(response=>{
       this.orders = response.sort((a:any, b:any) => b.orderId - a.orderId);
+      
+      if(this.orders?.length){
+      localStorage.setItem('lastOrder',JSON.stringify(this.orders[0]));
+      }
     })
   }
 
   giveRating(){
     this.dialog.open(GiveratingComponent)
+    this.isRated=true;
   }
 
 }

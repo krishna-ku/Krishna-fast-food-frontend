@@ -1,0 +1,28 @@
+.bottom{
+    margin-top: 80px;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.custom-label {
+  color: black;
+  font-size: 18px;
+  /* font-weight: bold; */
+  /* background-color: blue; */
+  padding: 5px 10px;
+  /* border-radius: 10px 10px 0 0; */
+}
+
+.custom-input {
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 0 0 10px 10px;
+}
+
+.mat-error {
+  color: orangered;
+  font-size: 18px;
+  font-weight: bold;
+}

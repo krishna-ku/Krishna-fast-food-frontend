@@ -27,7 +27,7 @@
             <td>{{o.restaurantName}}</td>
             <td>{{o.orderDate}}</td>
             <td>
-              <button (click)="giveRating()" *ngIf="o.orderStatus==='COMPLETED' && i === 0" style="color: red;">Rate</button>
+              <button (click)="giveRating()" *ngIf="o.orderStatus==='COMPLETED' && i === 0 && !isRated" style="color: red;">Rate</button>
             </td>
           </tr>
         </ng-container>
