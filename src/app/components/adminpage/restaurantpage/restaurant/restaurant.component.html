@@ -1,0 +1,69 @@
+<body class="image" *ngIf="restaurant">
+    <div class="container">
+
+        <div class="card" *ngIf="!editMode">
+            <h2 style="color:palevioletred;">Restaurant Information</h2>
+            <div class="info">
+                <p>Name: {{restaurant.name}}</p>
+                <p>Address: {{restaurant.address}}</p>
+                <p>Phone: {{restaurant.contactNo}}</p>
+                <p>Description: {{restaurant.description}}</p>
+                <p>openTiming: {{restaurant.openTiming}}</p>
+                <p>closeTiming: {{restaurant.closeTiming}}</p>
+                <p>status: {{restaurant.status}}</p>
+                <button mat-raised-button color="primary" style="margin-top: 30px; text-align: center;" (click)="editMode = true">Edit
+                    Information</button>
+            </div>
+        </div>
+
+        <div class="card" *ngIf="editMode">
+            <h2 style="color:palevioletred;">Edit Restaurant Information</h2>
+            <div class="info">
+                <mat-form-field>
+                    <input matInput placeholder="Name" [(ngModel)]="restaurant.name">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Address" [(ngModel)]="restaurant.address">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Phone" [(ngModel)]="restaurant.contactNo">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Description" [(ngModel)]="restaurant.description">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Open Timing" [(ngModel)]="restaurant.openTiming">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Close Timing" [(ngModel)]="restaurant.closeTiming">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Status" [(ngModel)]="restaurant.status">
+                </mat-form-field>
+                <div>
+                    <button mat-raised-button color="primary" style="margin-top: 20px;" (click)="editMode = false">Save Changes</button>
+                    <button mat-raised-button color="accent" style="margin-top: 20px; margin-left: 10px;" (click)="editMode = false">Delete Restaurant</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 style="color: palevioletred;">Create New Restaurant</h2>
+
+            <form>
+                <mat-form-field>
+                    <input matInput placeholder="Name">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Address">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Phone">
+                </mat-form-field>
+                <button mat-raised-button color="primary" style="margin-top: 100px;">Create Restaurant</button>
+            </form>
+        </div>
+
+
+    </div>
+</body>

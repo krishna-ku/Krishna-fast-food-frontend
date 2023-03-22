@@ -38,6 +38,7 @@ import { GetmyordersComponent } from './components/userpage/getmyorders/getmyord
 import { GetmyratingsComponent } from './components/userpage/getmyratings/getmyratings.component';
 import { GiveratingComponent } from './components/userpage/getmyratings/postrating/giverating/giverating.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { RestaurantComponent } from './components/adminpage/restaurantpage/restaurant/restaurant.component';
 // import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
@@ -64,6 +65,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     GetmyordersComponent,
     GetmyratingsComponent,
     GiveratingComponent,
+    RestaurantComponent,
     // MatTableModule,
   ],
   imports: [
