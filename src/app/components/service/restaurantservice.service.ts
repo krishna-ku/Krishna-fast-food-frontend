@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Restaurant } from '../classes/restaurant';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,12 @@ export class RestaurantService {
   getRestaurantInfo():Observable<any>{
 
     return this.http.get(`${this.baseURL}`)
+  }
+
+  updateRestaurantDetails(restaurant?:Restaurant): Observable<any>{
+
+    return this.http.put(`${this.baseURL}`,restaurant);
+
   }
 
 

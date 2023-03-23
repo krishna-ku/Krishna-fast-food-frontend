@@ -25,7 +25,11 @@ export class RestaurantComponent implements OnInit {
     return this.restaurantservice.getRestaurantInfo().subscribe(response=>{
       this.restaurant=response;
     })
+  }
 
+  updateRestaurant(){
+
+    return this.restaurantservice.updateRestaurantDetails(this.restaurant).subscribe();
   }
 
 
