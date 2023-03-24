@@ -18,5 +18,12 @@ export class Menuservice {
 
   }
 
+  getAdditionalItemsOfMenu():Observable<any>{
+
+    let token=localStorage.getItem('token');
+
+    return this.http.get(`${'http://localhost:8080/additionalitems'}`,{headers: { Authorization: 'Bearer  ${token}' }});
+  }
+
 
 }

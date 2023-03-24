@@ -14,7 +14,8 @@
       </li>
     </ul>
   <div *ngIf="cart.length > 0">
-    <button mat-flat-button color="primary" class="cart-button" routerLink="cart">
+    <!-- routerLink="cart" -->
+    <button mat-flat-button color="primary" class="cart-button" (click)='menuAdditionalItems()'>
       <mat-icon>shopping_cart</mat-icon> Go to Cart
     </button>
 </div>

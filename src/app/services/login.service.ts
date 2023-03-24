@@ -46,9 +46,9 @@ export class LoginService {
     console.log('inside logout');
     this.http.post(`${this.URL}/signout`,null).subscribe((response)=>{
       // localStorage.removeItem('token')
-      localStorage.clear();
+      // localStorage.clear()
     });
-    
+    localStorage.clear()
     return true;
   }
 

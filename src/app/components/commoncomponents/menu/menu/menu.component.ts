@@ -2,6 +2,8 @@
   import { Menu } from 'src/app/components/classes/menu';
   import { Menuservice } from 'src/app/components/service/menuservice.service';
   import { LoginService } from 'src/app/services/login.service';
+  import { MatDialog } from '@angular/material/dialog';
+import { AdditionalitemsofmenuComponent } from '../../cart/menuadditional/additionalitemsofmenu/additionalitemsofmenu.component';
 
   @Component({
     selector: 'app-menu',
@@ -13,7 +15,8 @@
     menu?:Menu[];
 
     constructor(private menuService:Menuservice,
-      private loginservice:LoginService) {}
+      private loginservice:LoginService,
+      private dialog:MatDialog,) {}
 
       ngOnInit(): void {
         this.getMenus();
@@ -56,4 +59,10 @@
       localStorage.setItem('cart',JSON.stringify(this.cart));
     }
   }
+
+  
+  menuAdditionalItems(){
+    this.dialog.open(AdditionalitemsofmenuComponent)
+  }
+
   }

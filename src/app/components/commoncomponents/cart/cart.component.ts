@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import { Orderservice } from '../../service/orderservice.service';
 
 
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -12,7 +13,9 @@ export class CartComponent implements OnInit {
 
   cartItems:any[]=[];
 
-  constructor(private orderservice:Orderservice){}
+  constructor(
+    private orderservice:Orderservice,
+    ){}
 
   ngOnInit(): void {
     // const cartItemsString:any = localStorage.getItem('cart');

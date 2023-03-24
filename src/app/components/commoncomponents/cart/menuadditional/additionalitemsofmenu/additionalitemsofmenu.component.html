@@ -1,0 +1,22 @@
+<!-- <div class="menu-container" >
+    <h1 class="menu-header">Our Additional Items</h1>
+  
+    <div class="menu-section">
+      <ul class="item-list">
+        <li class="menu-item" *ngFor="let m of additionalItems || []">
+          <div class="item-name">{{ m.name }}</div>
+          <div class="item-price">{{ m.price | currency }}</div>
+          <button >Add to Cart</button>
+        </li>
+      </ul>
+  </div> -->
+  <div class="container">
+
+    <div class="card">
+        <h2 style="color:palevioletred;">Our Additional Items</h2>
+        <div class="info"  *ngFor="let m of additionalItems || []">
+            <li>Name: {{m.name}}</li>
+            <li>Price: {{m.price}}</li>
+            <button mat-raised-button color="primary" style="margin-top: 30px; text-align: center;">Add to Cart</button>
+        </div>
+    </div>
