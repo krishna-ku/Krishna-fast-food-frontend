@@ -4,4 +4,5 @@ export class Menu {
     availability?:string;
     price?:number;
     quantity?:number=0;
+    type?:string;
 }

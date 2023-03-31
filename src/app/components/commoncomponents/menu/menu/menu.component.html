@@ -4,7 +4,7 @@
   <div class="menu-section">
     <h2 class="section-header">North Indian</h2>
     <ul class="item-list">
-      <li class="menu-item" *ngFor="let m of menu || []">
+      <li class="menu-item" *ngFor="let m of filteredMenu || []">
         <div class="item-name">{{ m.id }}</div>
         <div class="item-name">{{ m.name }}</div>
         <div class="item-name">{{ m.availability }}</div>

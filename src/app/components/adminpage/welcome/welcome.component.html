@@ -1,1 +1,33 @@
-<h1 style="color: white;">welcome to admin page</h1>
+<h1 style="color: white; text-align: center;">welcome to admin page</h1>
+<div class="container">
+
+    <div class="card">
+        <h2>Restaurant Peak Hours</h2>
+        <div class="info" *ngFor="let r of peekHours let i =index">
+            <p *ngIf="i<2">Between: {{r.time}}</p>
+            <p *ngIf="i<2">Orders: {{r.orders}}</p>
+            <p *ngIf="showMore && i>2">Between: {{r.time}}</p>
+            <p *ngIf="showMore && i>2">Orders: {{r.orders}}</p>
+            <button mat-raised-button color="accent" *ngIf="i===2" (click)="showMore=!showMore">{{showMore?'See Less':'See More'}}</button>
+            <p *ngIf="showMore && i>2">Between: {{r.time}}</p>
+            <p *ngIf="showMore && i>2">Orders: {{r.orders}}</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Most Ordered Dishes in Last 15 Days</h2>
+        <div class="info" *ngFor="let m of mostOrderedDish">
+            <p>{{m.menuItem}} is Order {{m.count}} Times</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Rating Dashboard</h2>
+        <p>Total Registered Users in Restaurant: {{ratingDashboard?.totalUsers}}</p>
+        <p>Rated Orders: {{ratingDashboard?.ratedOrdersCount}}</p>
+        <p>Total Users Whose Give Rating: {{ratingDashboard?.totalUsersWhoGaveRating}}</p>
+    </div>
+
+    
+
+</div>

@@ -28,8 +28,10 @@ export class CartComponent implements OnInit {
 
     this.orderservice.placedOrder(this.cartItems).subscribe(response=>{
       Swal.fire('Thank you','Order Placed Successfully');
-      localStorage.removeItem('cart');
+      setTimeout(() => {
+        localStorage.removeItem('cart');
       window.location.href="/menu";
+      }, 3000);
     });
   }
 

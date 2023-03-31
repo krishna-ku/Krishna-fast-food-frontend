@@ -13,6 +13,7 @@ import { AdditionalitemsofmenuComponent } from '../../cart/menuadditional/additi
   export class MenuComponent implements OnInit {
 
     menu?:Menu[];
+    filteredMenu?:Menu[]=[];
 
     constructor(private menuService:Menuservice,
       private loginservice:LoginService,
@@ -30,7 +31,8 @@ import { AdditionalitemsofmenuComponent } from '../../cart/menuadditional/additi
     getMenus(){
 
       return this.menuService.getAllMenus().subscribe(response=>{
-        this.menu=response.data
+        this.menu=response.data;
+        this.filteredMenu=this.menu?.filter((item)=>item.type==='normal');
       });
 
     }
