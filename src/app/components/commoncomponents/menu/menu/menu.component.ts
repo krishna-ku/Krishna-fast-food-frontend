@@ -20,6 +20,10 @@ import { AdditionalitemsofmenuComponent } from '../../cart/menuadditional/additi
       private dialog:MatDialog,) {}
 
       ngOnInit(): void {
+
+        // this.cart.push({name:'ice cream',itemQuantity:2})
+        // debugger
+
         this.getMenus();
       
         const item = localStorage.getItem('cart');
@@ -58,7 +62,7 @@ import { AdditionalitemsofmenuComponent } from '../../cart/menuadditional/additi
         console.log(this.cart);
         
       }
-      localStorage.setItem('cart',JSON.stringify(this.cart));
+      // localStorage.setItem('cart',JSON.stringify(this.cart));
     }
   }
 

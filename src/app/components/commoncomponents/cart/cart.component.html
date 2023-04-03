@@ -11,8 +11,8 @@
               <th scope="col">Item Quantity</th>
             </tr>
           </thead>
-          <tbody>
-            <tr *ngFor="let c of cartItems">
+          <tbody *ngIf="hero">
+            <tr *ngFor="let c of hero">
               <!-- <th scope="row">{{}}</th> -->
               <td>{{c.name}}</td>
               <td>{{c.itemQuantity}}</td>

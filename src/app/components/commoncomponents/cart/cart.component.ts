@@ -11,16 +11,25 @@ import { Orderservice } from '../../service/orderservice.service';
 })
 export class CartComponent implements OnInit {
 
+  @Input() hero:any;
+
   cartItems:any[]=[];
 
   constructor(
     private orderservice:Orderservice,
     ){}
 
+    ngAfterContentInit(): void{
+      console.log('111111---------',this.hero);
+    }
+
   ngOnInit(): void {
     // const cartItemsString:any = localStorage.getItem('cart');
     // this.cartItems=JSON.parse(this.items);
-    this.cartItems=JSON.parse(localStorage.getItem('cart')??'') || [];
+    // this.cartItems=JSON.parse(localStorage.getItem('cart')??'') || [];
+
+    console.log('---------',this.hero);
+    
     
   }
 

@@ -19,3 +19,4 @@
       <mat-icon>shopping_cart</mat-icon> Go to Cart
     </button>
 </div>
+<div *ngIf="cart.length>0"><app-cart [hero]="cart"></app-cart></div>

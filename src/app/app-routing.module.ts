@@ -45,6 +45,7 @@ const routes: Routes = [
       {
         path:"profile",
         component:ProfileComponent,
+        // loadChildren:()=>import('./').then(m=>m.profile)
       },
       {
         path:'updateuser',
