@@ -22,6 +22,18 @@ export class Admindashboard {
     return this.http.get(`${'http://localhost:8080/ratingdashboard'}`);
   }
 
+  orderDashboard(fromDate?:any,toDate?:any): Observable<any>{
+    console.log(fromDate);
+    
+    const URL=`http://localhost:8080/dashboard?fromDate=${fromDate}&toDate=${toDate}`;
+    return this.http.get(URL);
+  }
+
+  orderStatistics(fromDate?:any,toDate?:any): Observable<any>{
+    const URL=`http://localhost:8080/orderstatistics?fromDate=${fromDate}&toDate=${toDate}`;
+    return this.http.get(URL);
+  }
+
 }
 
 

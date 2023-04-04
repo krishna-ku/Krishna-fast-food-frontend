@@ -5,6 +5,6 @@
     <span><a mat-icon-button style="margin-left: 40px;">CONTACT</a></span>
     <span class="spacer"></span>
     <a *ngIf="!loggedIn"  mat-icon-button routerLink="/login">Login</a>
-    <a *ngIf="loggedIn" mat-icon-button routerLink="/admin" >user</a>
+    <!-- <a *ngIf="loggedIn" mat-icon-button routerLink="/admin" >user</a> -->
     <a class="container" *ngIf="loggedIn" (click)="logoutUser()" mat-icon-button >Logout</a>
 </mat-toolbar>

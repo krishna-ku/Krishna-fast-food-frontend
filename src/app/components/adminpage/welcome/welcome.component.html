@@ -28,6 +28,39 @@
         <p>Total Users Whose Give Rating: {{ratingDashboard?.totalUsersWhoGaveRating}}</p>
     </div>
 
+    <div class="card" *ngIf="!orderDashboardButton">
+        <h2>Order Dashboard</h2>
+        <p>fromDate: <input type="search" placeholder="yyyy-mm-dd" [(ngModel)]="fromDate"></p>
+        <p>toDate: <input type="search" placeholder="yyyy-mm-dd" [(ngModel)]="toDate"></p>
+        <button mat-raised-button color="primary" (click)="getOrderDashboard();orderDashboardButton=!orderDashboardButton">submit</button>
+      </div>
+
+    <div class="card" *ngIf="orderDashboardButton">
+        <h2>Order Dashboard</h2>
+        <p>Total Registered Users in Restaurant: {{orderDashboard?.totalUsers}}</p>
+        <p>Total Orders: {{orderDashboard?.totalOrders}}</p>
+        <p>Waiting Orders: {{orderDashboard?.waitingOrders}}</p>
+        <p>Cancelled Orders: {{orderDashboard?.cancelledOrders}}</p>
+        <p>Completed Orders: {{orderDashboard?.completedOrders}}</p>
+        <button mat-raised-button color="primary" (click)="orderDashboardButton=!orderDashboardButton">OKAY</button>
+    </div>
+
+    <div class="card" *ngIf="!orderStatisticsButton">
+        <h2>Order statistics</h2>
+        <p>fromDate: <input type="search" placeholder="yyyy-mm-dd" [(ngModel)]="fromDate"></p>
+        <p>toDate: <input type="search" placeholder="yyyy-mm-dd" [(ngModel)]="toDate"></p>
+        <button mat-raised-button color="primary" (click)="getOrderStatistics()">submit</button>
+    </div>
+
+    <div *ngIf="orderStatistics && orderStatistics.length > 0" >
+    <div class="card" *ngFor="let o of orderStatistics">
+        <h2>Order Statistics</h2>
+        <p>Total Registered Users in Restaurant: {{o.count}}</p>
+        <p>Total Orders: {{o.date}}</p>
+    </div>
+    </div>
+      
+
     
 
 </div>

@@ -41,6 +41,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { RestaurantComponent } from './components/adminpage/restaurantpage/restaurant/restaurant.component';
 import { RestaurantdashboardComponent } from './components/adminpage/restaurantdashboard/restaurantdashboard/restaurantdashboard.component';
 import { AdditionalitemsofmenuComponent } from './components/commoncomponents/cart/menuadditional/additionalitemsofmenu/additionalitemsofmenu.component';
+import { CommonModule} from '@angular/common';
 // import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
@@ -92,6 +93,7 @@ import { AdditionalitemsofmenuComponent } from './components/commoncomponents/ca
     MatListModule,
     MatIconModule,
     MatDialogModule,
+    CommonModule,
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]
