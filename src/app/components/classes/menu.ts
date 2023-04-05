@@ -5,4 +5,5 @@ export class Menu {
     price?:number;
     quantity?:number=0;
     type?:string;
+
 }

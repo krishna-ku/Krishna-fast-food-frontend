@@ -14,6 +14,9 @@ import { AdditionalitemsofmenuComponent } from '../../cart/menuadditional/additi
 
     menu?:Menu[];
     filteredMenu?:Menu[]=[];
+    // i=0;
+
+    cartMap=new Map();
 
     constructor(private menuService:Menuservice,
       private loginservice:LoginService,
@@ -30,6 +33,8 @@ import { AdditionalitemsofmenuComponent } from '../../cart/menuadditional/additi
         if (item && item.trim() !== '') {
           this.cart = JSON.parse(item);
         }
+
+        localStorage.getItem('itemQuantity');
       }
 
     getMenus(){
@@ -37,6 +42,7 @@ import { AdditionalitemsofmenuComponent } from '../../cart/menuadditional/additi
       return this.menuService.getAllMenus().subscribe(response=>{
         this.menu=response.data;
         this.filteredMenu=this.menu?.filter((item)=>item.type==='normal');
+        // this.filteredMenu?.find(i=>i.quantity=0);
       });
 
     }
@@ -53,22 +59,39 @@ import { AdditionalitemsofmenuComponent } from '../../cart/menuadditional/additi
         },0);
       }
       else{
+        // this.i++;
         const itemExist=this.cart.find(cartItem=> cartItem.name==item.name);
 
         if(itemExist){
           itemExist.itemQuantity++;
+          this.cartMap.set(item.id,this.cartMap.get(item.id)+1);
+          item.quantity++;
         }else{
         this.cart.push({ name: item.name,itemQuantity:1 });
-        console.log(this.cart);
+        this.cartMap.set(item.id,1);
+        item.quantity=+1;
+        // n++;
+        // console.log(n);
+        
+        // console.log(this.cart);
         
       }
-      // localStorage.setItem('cart',JSON.stringify(this.cart));
+      localStorage.setItem('itemQuantity',item.quantity);
+      localStorage.setItem('cart',JSON.stringify(this.cart));
     }
+  }
+
+  removeFromCart(item:any){
+    const itemExist=this.cart?.find(i=>i.name==item.name)
+    if(itemExist)
+    itemExist.itemQuantity--;
+    item.quantity--;
+    localStorage.setItem('itemQuantity',item.quantity);
+    localStorage.setItem('cart',JSON.stringify(this.cart));
   }
 
   
   menuAdditionalItems(){
     this.dialog.open(AdditionalitemsofmenuComponent)
   }
-
-  }
+}

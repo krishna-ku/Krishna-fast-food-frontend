@@ -1,22 +1,30 @@
-<div class="menu-container" *ngIf="menu"  >
+<div class="menu-container" *ngIf="menu">
   <h1 class="menu-header">Our Menu</h1>
 
   <div class="menu-section">
     <h2 class="section-header">North Indian</h2>
     <ul class="item-list">
-      <li class="menu-item" *ngFor="let m of filteredMenu || []">
+      <li class="menu-item" *ngFor="let m of filteredMenu">
         <div class="item-name">{{ m.id }}</div>
         <div class="item-name">{{ m.name }}</div>
         <div class="item-name">{{ m.availability }}</div>
         <div class="item-price">{{ m.price | currency }}</div>
-        <button (click)="addToCart(m)">Add to Cart</button>
-        <!-- <div *ngIf="m && m.quantity > 0">{{ m.quantity }}</div> -->
+        <!-- <div class="item-name">{{ m.quantity }}</div> -->
+        <button *ngIf="!cartMap.get(m.id)" (click)="addToCart(m)">Add to Cart</button>
+        <div *ngIf="cartMap.get(m.id)">
+          <button  (click)="removeFromCart(m)">-</button>
+        <div class="quantity">{{ cartMap.get(m.id) }}</div>
+        <button  (click)="addToCart(m)">+</button>
+        </div>
       </li>
     </ul>
-  <div *ngIf="cart.length > 0">
-    <!-- routerLink="cart" -->
-    <button mat-flat-button color="primary" class="cart-button" (click)='menuAdditionalItems()'>
-      <mat-icon>shopping_cart</mat-icon> Go to Cart
-    </button>
+    <div *ngIf="cart.length > 0">
+      <button mat-flat-button color="primary" class="cart-button" (click)='menuAdditionalItems()'>
+        <mat-icon>shopping_cart</mat-icon> Go to Cart
+      </button>
+    </div>
+    <!-- <div *ngIf="cart.length>0">
+      <app-cart [hero]="cart"></app-cart>
+    </div> -->
+  </div>
 </div>
-<div *ngIf="cart.length>0"><app-cart [hero]="cart"></app-cart></div>

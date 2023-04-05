@@ -58,3 +58,24 @@
     font-weight: bold;
     color: #cc0000;
   }
+
+  /* .quantity-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .quantity-container button {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    border: 1px solid black;
+    background-color: white;
+  }
+  
+  .quantity {
+    margin: 0 10px;
+    font-size: 16px;
+  }
+   */
