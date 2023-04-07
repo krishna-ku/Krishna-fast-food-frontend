@@ -10,10 +10,10 @@
         <div class="item-name">{{ m.availability }}</div>
         <div class="item-price">{{ m.price | currency }}</div>
         <!-- <div class="item-name">{{ m.quantity }}</div> -->
-        <button *ngIf="!cartMap.get(m.id)" (click)="addToCart(m)">Add to Cart</button>
-        <div *ngIf="cartMap.get(m.id)">
+        <button *ngIf="!findItemExist(m)" (click)="addToCart(m)">Add to Cart</button>
+        <div *ngIf="findItemExist(m)">
           <button  (click)="removeFromCart(m)">-</button>
-        <div class="quantity">{{ cartMap.get(m.id) }}</div>
+        <div class="quantity">{{ findItem(m) }}</div>
         <button  (click)="addToCart(m)">+</button>
         </div>
       </li>

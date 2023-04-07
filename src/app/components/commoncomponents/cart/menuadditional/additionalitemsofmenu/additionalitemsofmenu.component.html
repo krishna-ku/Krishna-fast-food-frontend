@@ -5,7 +5,13 @@
     <div class="info" *ngFor="let m of filteredMenu || []">
       <li>Name: {{m.name}}</li>
       <li>Price: {{m.price}}</li>
-      <button mat-raised-button color="primary" style="margin-top: 30px; text-align: center;" (click)="addItemsInCart(m)">Add to Cart</button>
+      <button mat-raised-button color="primary" style="margin-top: 30px; text-align: center;" *ngIf="!findItemExist(m)"
+        (click)="addItemsInCart(m)">Add to Cart</button>
+        <div *ngIf="findItemExist(m)">
+          <button  (click)="removeFromCart(m)">-</button>
+        <div class="quantity">{{ findItem(m) }}</div>
+        <button  (click)="addItemsInCart(m)">+</button>
+        </div>
     </div>
   </div>
   <button mat-raised-button color="accent" style="text-align: center;" routerLink="/menu/cart"

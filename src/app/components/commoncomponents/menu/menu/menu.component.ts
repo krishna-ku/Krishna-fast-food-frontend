@@ -16,7 +16,7 @@ import { AdditionalitemsofmenuComponent } from '../../cart/menuadditional/additi
     filteredMenu?:Menu[]=[];
     // i=0;
 
-    cartMap=new Map();
+    // cartMap=new Map();
 
     constructor(private menuService:Menuservice,
       private loginservice:LoginService,
@@ -34,7 +34,7 @@ import { AdditionalitemsofmenuComponent } from '../../cart/menuadditional/additi
           this.cart = JSON.parse(item);
         }
 
-        localStorage.getItem('itemQuantity');
+        // localStorage.getItem('itemQuantity');
       }
 
     getMenus(){
@@ -64,34 +64,54 @@ import { AdditionalitemsofmenuComponent } from '../../cart/menuadditional/additi
 
         if(itemExist){
           itemExist.itemQuantity++;
-          this.cartMap.set(item.id,this.cartMap.get(item.id)+1);
-          item.quantity++;
+          // this.cartMap.set(item.id,this.cartMap.get(item.id)+1);
+          // item.quantity++;
         }else{
         this.cart.push({ name: item.name,itemQuantity:1 });
-        this.cartMap.set(item.id,1);
-        item.quantity=+1;
+        // this.cartMap.set(item.id,1);
+        // item.quantity=+1;
         // n++;
         // console.log(n);
         
         // console.log(this.cart);
         
       }
-      localStorage.setItem('itemQuantity',item.quantity);
+      // localStorage.setItem('itemQuantity',item.quantity);
       localStorage.setItem('cart',JSON.stringify(this.cart));
     }
   }
 
   removeFromCart(item:any){
     const itemExist=this.cart?.find(i=>i.name==item.name)
-    if(itemExist)
+    if(itemExist){
     itemExist.itemQuantity--;
-    item.quantity--;
-    localStorage.setItem('itemQuantity',item.quantity);
+    if(itemExist?.itemQuantity===0){
+    const index=this.cart.indexOf(itemExist);
+    this.cart.splice(index,1);}
+    // item.quantity--;
+    // localStorage.setItem('itemQuantity',item.quantity);
     localStorage.setItem('cart',JSON.stringify(this.cart));
+    }
   }
 
   
   menuAdditionalItems(){
     this.dialog.open(AdditionalitemsofmenuComponent)
   }
+
+
+  findItemExist(item:any){
+    const itemExist=this.cart.find(i=>i.name===item.name);
+    if(itemExist){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  
+  findItem(item:any){
+    const itemExist=this.cart.find(i=>i.name===item.name);
+    return itemExist?.itemQuantity;
+    }
+  
 }

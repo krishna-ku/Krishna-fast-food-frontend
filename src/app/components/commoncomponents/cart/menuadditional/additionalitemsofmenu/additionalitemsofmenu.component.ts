@@ -54,4 +54,37 @@ export class AdditionalitemsofmenuComponent implements OnInit {
     this.dialog.closeAll();
   }
 
+  removeFromCart(item:any){
+    const itemExist=this.cartItems?.find(i=>i.name==item.name)
+    if(itemExist){
+    itemExist.itemQuantity--;
+    if(itemExist.itemQuantity===0){
+      const index=this.cartItems.indexOf(itemExist);
+      this.cartItems.splice(index,1);}
+    // item.quantity--;
+    // localStorage.setItem('itemQuantity',item.quantity);
+    localStorage.setItem('cart',JSON.stringify(this.cartItems));
+    }
+  }
+
+  
+  menuAdditionalItems(){
+    this.dialog.open(AdditionalitemsofmenuComponent)
+  }
+
+
+  findItemExist(item:any){
+    const itemExist=this.cartItems.find(i=>i.name===item.name);
+    if(itemExist){
+      return true;
+    }else{
+      return false;
+    }
+  }
+  
+  findItem(item:any){
+    const itemExist=this.cartItems.find(i=>i.name===item.name);
+    return itemExist?.itemQuantity;
+    }
+
 }
