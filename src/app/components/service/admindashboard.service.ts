@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
+import { Restaurant } from '../classes/restaurant';
+import { Restaurantpeekhours } from '../classes/restaurantpeekhours';
+import { Ratingdashboard } from '../classes/ratingdashboard';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +21,7 @@ export class Admindashboard {
     return this.http.get(`${'http://localhost:8080/mostorderdish'}`);
   }
 
-  ratingDahsboard():Observable<any>{
+  ratingDahsboard():Observable<Ratingdashboard>{
     return this.http.get(`${'http://localhost:8080/ratingdashboard'}`);
   }
 
