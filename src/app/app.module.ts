@@ -42,6 +42,7 @@ import { RestaurantComponent } from './components/adminpage/restaurantpage/resta
 import { RestaurantdashboardComponent } from './components/adminpage/restaurantdashboard/restaurantdashboard/restaurantdashboard.component';
 import { AdditionalitemsofmenuComponent } from './components/commoncomponents/cart/menuadditional/additionalitemsofmenu/additionalitemsofmenu.component';
 import { CommonModule} from '@angular/common';
+import { GetAllBillSComponent } from './components/commoncomponents/get-all-bill-s/get-all-bill-s.component';
 // import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
@@ -71,6 +72,7 @@ import { CommonModule} from '@angular/common';
     RestaurantComponent,
     RestaurantdashboardComponent,
     AdditionalitemsofmenuComponent,
+    GetAllBillSComponent,
     // MatTableModule,
   ],
   imports: [

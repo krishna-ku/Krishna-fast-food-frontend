@@ -3,6 +3,7 @@ import { Orders } from '../../classes/orders';
 import { Orderservice } from '../../service/orderservice.service';
 import { MatDialog } from '@angular/material/dialog';
 import { GiveratingComponent } from '../getmyratings/postrating/giverating/giverating.component';
+import { GetAllBillSComponent } from '../../commoncomponents/get-all-bill-s/get-all-bill-s.component';
 
 @Component({
   selector: 'app-getmyorders',
@@ -37,6 +38,10 @@ export class GetmyordersComponent implements OnInit  {
   giveRating(){
     this.dialog.open(GiveratingComponent)
     this.isRated=true;
+  }
+
+  getAllBills(){
+    this.dialog.open(GetAllBillSComponent);
   }
 
 }
