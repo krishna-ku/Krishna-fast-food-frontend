@@ -20,8 +20,14 @@ import { UserpageComponent } from './components/userpage/userpage.component';
 import { UserwelcomepageComponent } from './components/userpage/userwelcomepage/userwelcomepage.component';
 import { AuthGuard } from './services/auth.guard';
 import { UserListComponent } from './user-list/user-list.component';
+import { GetAllBillSComponent } from './components/commoncomponents/get-all-bill-s/get-all-bill-s.component';
 
 const routes: Routes = [
+
+  {
+    path:'bills',
+    component:GetAllBillSComponent
+  },
 
   {
     path:'',

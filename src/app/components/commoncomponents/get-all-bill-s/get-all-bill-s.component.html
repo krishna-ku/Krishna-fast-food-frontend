@@ -1,6 +1,16 @@
-<div>
-<h1 style="color: black;">welcome to bill page</h1>
-<ul *ngFor="let b from fileNames">
-    <li>{{b}}</li>
+<div style="padding: 80px;">
+<h1 style="color: black; margin-bottom: 10px;">welcome to bill page</h1>
+<ul *ngFor="let b of fileNames">
+    <li>{{b}}
+    <button mat-raised-button color="accent" (click)="downloadBill(b)" style="margin-left: 10px;">download</button>
+</li>
 </ul>
 </div>
+
+<!-- <div>
+    <h1 style="color: black;">Welcome to the bill page</h1>
+    <ul *ngFor="let b of fileNames">
+      <li>{{ b }}</li>
+    </ul>
+  </div> -->
+  

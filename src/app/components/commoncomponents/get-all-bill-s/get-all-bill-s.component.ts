@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { saveAs } from 'file-saver'
 import { BillService } from '../../service/bill-service.service';
 
 @Component({
@@ -10,9 +11,9 @@ export class GetAllBillSComponent {
 
   constructor(private billService:BillService) {}
 
-  fileNames: String[]=[];
+  fileNames: string[]=[];
 
-  ngOnInIt(): void{
+  ngOnInit(): void{
     this.getBills();
   }
 
@@ -23,6 +24,20 @@ export class GetAllBillSComponent {
       this.fileNames=data;
 
     })
+
+  }
+
+  downloadBill(bill:string){
+
+    return this.billService.downloadBills(bill).subscribe( (data:Blob)=>{
+
+      saveAs(data,'bill.pdf');
+    },
+    (error)=>{
+      console.error('Error occurred while downloading the bill: ',error);
+      
+    }
+    );
 
   }
 

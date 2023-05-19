@@ -16,4 +16,9 @@ export class BillService {
     return this.http.get(`${this.baseURL}bills`);
   }
 
+  downloadBills(bill:string):Observable<any>{
+
+    return this.http.post(`${this.baseURL}download/${bill}`,bill);
+  }
+
 }
