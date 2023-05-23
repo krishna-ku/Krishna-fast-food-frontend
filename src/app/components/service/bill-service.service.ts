@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
 
@@ -18,7 +18,7 @@ export class BillService {
 
   downloadBills(bill:string):Observable<any>{
 
-    return this.http.post(`${this.baseURL}download/${bill}`,bill);
+    return this.http.get<any>(`${this.baseURL}download/${bill}`);
   }
 
 }

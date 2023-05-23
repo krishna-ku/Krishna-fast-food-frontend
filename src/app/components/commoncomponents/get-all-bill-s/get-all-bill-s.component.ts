@@ -29,14 +29,18 @@ export class GetAllBillSComponent {
 
   downloadBill(bill:string){
 
-    return this.billService.downloadBills(bill).subscribe( (data:Blob)=>{
+    return this.billService.downloadBills(bill).subscribe(response=>{
 
-      saveAs(data,'bill.pdf');
-    },
-    (error)=>{
-      console.error('Error occurred while downloading the bill: ',error);
+      // console.log(response.data);
+      const file=new Blob([response],{type:'application/octet-stream'});//accept packet data or byte array data
+      saveAs(file,'bill.pdf')
+      // console.log(response.headers);
       
     }
+    // (error)=>{
+    //   console.error('Error occurred while downloading the bill: ',error);
+      
+    // }
     );
 
   }
