@@ -43,6 +43,7 @@ import { RestaurantdashboardComponent } from './components/adminpage/restaurantd
 import { AdditionalitemsofmenuComponent } from './components/commoncomponents/cart/menuadditional/additionalitemsofmenu/additionalitemsofmenu.component';
 import { CommonModule} from '@angular/common';
 import { GetAllBillSComponent } from './components/commoncomponents/get-all-bill-s/get-all-bill-s.component';
+import { OtpConfimationComponent } from './components/commoncomponents/cart/otp-confimation/otp-confimation.component';
 // import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
@@ -73,6 +74,7 @@ import { GetAllBillSComponent } from './components/commoncomponents/get-all-bill
     RestaurantdashboardComponent,
     AdditionalitemsofmenuComponent,
     GetAllBillSComponent,
+    OtpConfimationComponent,
     // MatTableModule,
   ],
   imports: [
